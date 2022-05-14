@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import {
-  collection,
-  addDoc,
-  getDocs,
-  doc,
-  getDoc,
-  setDoc,
-} from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useAuth } from '../contexts/AuthContext';
 import _ from 'underscore';
@@ -20,7 +13,7 @@ const Recipe = () => {
   const stepId = 1;
   const recipeName = recipe.name;
   const [showModal, setShowModal] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
+  // const [showMenu, setShowMenu] = useState(false);
   const [selectedDate, setSelectedDate] = useState();
 
   //   GET RECIPE BASED ON PARAMS
@@ -38,6 +31,7 @@ const Recipe = () => {
       setLoading(false);
     }
   };
+  console.log(selectedDate);
 
   useEffect(() => {
     getSingleRecipe();

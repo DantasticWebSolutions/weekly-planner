@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { doc, getDoc, getFirestore, setDoc } from 'firebase/firestore';
+// import {
+//   doc,
+//   getFirestore,
+//   setDoc
+// } from 'firebase/firestore';
 import CalendarModal from '../components/CalendarModal';
 // import {NotificationContainer, NotificationManager} from 'react-notifications';
 
@@ -10,13 +14,13 @@ RecipeCardFluid.propTypes = {
 };
 
 function RecipeCardFluid(props) {
-  const db = getFirestore();
-  const { recipe, onDelete, onMove, id, date } = props;
-  const userUID = localStorage.getItem('userUID');
+  const { recipe, onDelete, onMove, id } = props;
+  // const userUID = localStorage.getItem('userUID');
   const [showMenu, setShowMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [selectedDate, setSelectedDate] = useState();
 
+  console.log(selectedDate);
   const removeRecipe = () => {
     onDelete(id);
   };
@@ -29,24 +33,24 @@ function RecipeCardFluid(props) {
     setShowMenu(!showMenu);
   };
 
-  const addToWeeklyPlanner = async (date, recipeName) => {
-    const add = {
-      ...{ date: date, recipe },
-    };
-    const recipeRef = doc(
-      db,
-      `weekly-planner-${userUID}`,
-      `${date}-${recipeName}`
-    );
+  // const addToWeeklyPlanner = async (date, recipeName) => {
+  //   const add = {
+  //     ...{ date: date, recipe },
+  //   };
+  //   const recipeRef = doc(
+  //     db,
+  //     `weekly-planner-${userUID}`,
+  //     `${date}-${recipeName}`
+  //   );
 
-    try {
-      await setDoc(recipeRef, add, { merge: true });
-      alert('Recipe has been moved');
-    } catch (e) {
-      alert('Oops, something went wrong. Try again!');
-      console.log(e);
-    }
-  };
+  //   try {
+  //     await setDoc(recipeRef, add, { merge: true });
+  //     alert('Recipe has been moved');
+  //   } catch (e) {
+  //     alert('Oops, something went wrong. Try again!');
+  //     console.log(e);
+  //   }
+  // };
 
   const openCalendarModal = () => {
     setShowModal(!showModal);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { doc, getDoc, getFirestore } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 
 const CookRecipe = () => {
@@ -50,6 +50,7 @@ const CookRecipe = () => {
     const progress = (currentStep / steps) * 100 + '%';
     setProgress(progress);
   }
+  console.log(progress);
 
   function updateState() {
     setLoading(true);

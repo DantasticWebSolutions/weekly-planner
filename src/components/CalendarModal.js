@@ -1,11 +1,11 @@
 import Calendar from 'react-calendar';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import 'react-calendar/dist/Calendar.css';
 // import { DateTime } from 'luxon';
 
 function CalendarModal(props) {
-  let { show, value, onClose, onSelectedDate } = props;
+  let { value, onClose, onSelectedDate } = props;
   const [calendarValue, setCalendarValue] = useState(new Date());
   const [formattedCalendarValue, setFormattedCalendarValue] = useState();
 
@@ -13,6 +13,7 @@ function CalendarModal(props) {
     props.onClose && props.onClose(e);
   };
 
+  console.log(formattedCalendarValue);
   const onCalendarChange = (e) => {
     setCalendarValue(e);
   };

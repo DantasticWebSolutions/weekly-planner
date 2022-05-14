@@ -146,6 +146,7 @@ export function AuthProvider({ children }) {
     signInWithGoogle,
     signInWithFacebook,
     getDatabase,
+    isAuthenticated,
   };
 
   return (

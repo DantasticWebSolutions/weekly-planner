@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
-import {
-  doc,
-  setDoc,
-  collection,
-  getDocs,
-  getFirestore,
-  deleteDoc,
-} from 'firebase/firestore';
+import { doc, collection, getDocs, deleteDoc } from 'firebase/firestore';
 import { confirmAlert } from 'react-confirm-alert';
 
 const ShoppingList = () => {
@@ -37,6 +30,9 @@ const ShoppingList = () => {
       setLoading(false);
     }
   };
+
+  console.log(bought);
+  console.log(listWithoutNames);
 
   const getItems = (shoppingList) => {
     const items = shoppingList.map((item) => Object.values(item));
