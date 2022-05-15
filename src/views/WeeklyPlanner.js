@@ -70,36 +70,38 @@ const WeeklyPlanner = () => {
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
-          <div className='font-koho mx-8 flex flex-col bg-gray-50 text-gray-900 px-6 py-4 rounded-sm'>
-            <h1 className='flex flex-row space-x-2'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                className='text-red-400 h-6 w-6'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'>
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth='2'
-                  d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z'
-                />
-              </svg>
-              <span>Are you sure?</span>
-            </h1>
-            <p className='text-sm'>
-              Recipe will be removed from your weekly planner.
-            </p>
-            <div className='flex flex-row justify-between mt-5'>
-              <button onClick={onClose}>Cancel</button>
-              <button
-                className='bg-red-500 text-white py-1 px-3 rounded-sm'
-                onClick={() => {
-                  handleClickDelete(userUID, id);
-                  onClose();
-                }}>
-                Yes, Remove it!
-              </button>
+          <div className='confirm-alert-container'>
+            <div className='confirm-alert'>
+              <h1 className='flex flex-row space-x-2'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  className='text-red-400 h-6 w-6'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='currentColor'>
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
+                    d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z'
+                  />
+                </svg>
+                <span>Are you sure?</span>
+              </h1>
+              <p className='text-sm'>
+                Recipe will be removed from your weekly planner.
+              </p>
+              <div className='flex flex-column mt-5'>
+                <button onClick={onClose}>Cancel</button>
+                <button
+                  className='bg-red-500 text-white py-1 px-3 rounded-sm'
+                  onClick={() => {
+                    handleClickDelete(userUID, id);
+                    onClose();
+                  }}>
+                  Yes, Remove it!
+                </button>
+              </div>
             </div>
           </div>
         );
@@ -175,9 +177,10 @@ const WeeklyPlanner = () => {
     });
   };
 
+  console.log(planner);
+
   return (
     <div>
-      WeeklyPlanner
       {!loading && planner.length === 0 && (
         <div
           className={
@@ -191,19 +194,22 @@ const WeeklyPlanner = () => {
       {!loading && planner.length > 0 && (
         <div className='mb-25 p-4 pb-28'>
           <div className='flex flex-col space-y-6'>
-            {planner.map((item) => (
-              <div key={item.id} className='flex flex-col space-y-4'>
-                <h2 className='text-lg'>{weekDayFormatting(item.date)}</h2>
-                <RecipeCardFluid
-                  key={`${item.date}-${item.recipe.name}`}
-                  date={item.date}
-                  id={`${item.date}-${item.recipe.name}`}
-                  recipe={item.recipe}
-                  onMove={confirmMove}
-                  onDelete={confirmDelete}
-                />
-              </div>
-            ))}
+            <div className=''>
+              {planner.map((item) => (
+                <div key={item.id} style={{ margin: '10px' }}>
+                  <h2 className='text-lg'>{weekDayFormatting(item.date)}</h2>
+                  <RecipeCardFluid
+                    key={`${item.date}-${item.recipe.name}`}
+                    date={item.date}
+                    id={`${item.date}-${item.recipe.name}`}
+                    recipe={item.recipe}
+                    formatedDate={weekDayFormatting(item.date)}
+                    onMove={confirmMove}
+                    onDelete={confirmDelete}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}

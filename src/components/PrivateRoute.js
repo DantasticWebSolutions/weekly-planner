@@ -9,7 +9,7 @@ const PrivateRoute = ({ Component }) => {
 
   return currentUser ? (
     <div>
-      <div style={{ marginBottom: '100px' }}>
+      <div style={{ marginBottom: '30px' }}>
         <Component />
       </div>
       <Navbar />

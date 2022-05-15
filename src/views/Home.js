@@ -32,9 +32,9 @@ const Home = () => {
   console.log(recipes);
   return (
     <div>
-      <div className=''>
-        <h1>Hello Dan</h1>
-        <h6>What are you going to cook today?</h6>
+      <div className='title mt-4 mb-2'>
+        <span className='h1'>Hello Dan</span>
+        <span className='h6'>What are you going to cook today?</span>
       </div>
       <div className='recipeContainer'>
         {recipes.map((recipe) => (
@@ -51,3 +51,27 @@ const Home = () => {
 };
 
 export default Home;
+
+// <div className='z-50 origin-top-right absolute right-0 w-40 rounded-md shadow-lg bg-white focus:outline-none'>
+//             <div className='z-40 py-1'>
+//               <Link
+//                 to={`/recipe/${recipe.id}`}
+//                 className='text-gray-700 block px-4 py-2 text-xs'
+//                 id='0'>
+//                 Open recipe
+//               </Link>
+//               <div
+//                 onClick={openCalendarModal}
+//                 className='text-gray-700 block px-4 py-2 text-xs'
+//                 id='1'>
+//                 Move day
+//               </div>
+//               <p
+//                 onClick={() => {
+//                   removeRecipe();
+//                 }}
+//                 className='text-red-500 block px-4 py-2 text-xs'
+//                 id='2'>
+//                 Remove from my week
+//               </p>
+//             </div>

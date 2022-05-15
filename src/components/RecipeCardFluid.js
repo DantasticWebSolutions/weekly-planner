@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 // import {
 //   doc,
 //   getFirestore,
@@ -65,62 +66,50 @@ function RecipeCardFluid(props) {
 
   return (
     <div
-      className='relative w-full h-34 text-white text-xxxs shadow-lg rounded-lg flex'
+      className='recipeCard'
       style={{
         background: `url(${recipe.photo_url})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
       no-repeat='true'>
-      <div className='absolute w-full h-full bg-recipe-overlay rounded-lg'></div>
       <div
-        className={'w-full h-full p-2 flex flex-row items-end justify-between'}>
-        <div className='text-base pb-1 z-10'>{recipe.name}</div>
-        <div className='relative inline-block text-left z-20'>
-          <svg
-            onClick={displayMenu}
-            className='-mb-1'
-            width='40'
-            height='40'
-            viewBox='0 0 40 40'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'>
-            <path
-              fillRule='evenodd'
-              clipRule='evenodd'
-              d='M26.2471 19.0228C27.1687 19.0228 27.9137 19.7678 27.9137 20.6895C27.9137 21.6112 27.1687 22.3562 26.2471 22.3562C25.3254 22.3562 24.5721 21.6112 24.5721 20.6895C24.5721 19.7678 25.3104 19.0228 26.2304 19.0228H26.2471ZM19.5642 19.0228C20.4859 19.0228 21.2309 19.7678 21.2309 20.6895C21.2309 21.6112 20.4859 22.3562 19.5642 22.3562C18.6426 22.3562 17.8909 21.6112 17.8909 20.6895C17.8909 19.7678 18.6276 19.0228 19.5492 19.0228H19.5642ZM12.8829 19.0228C13.8046 19.0228 14.5496 19.7678 14.5496 20.6895C14.5496 21.6112 13.8046 22.3562 12.8829 22.3562C11.9612 22.3562 11.2079 21.6112 11.2079 20.6895C11.2079 19.7678 11.9462 19.0228 12.8679 19.0228H12.8829Z'
-              fill='white'
-            />
-          </svg>
-
-          {showMenu && (
-            <div className='z-50 origin-top-right absolute right-0 w-40 rounded-md shadow-lg bg-white focus:outline-none'>
-              <div className='z-40 py-1'>
-                <Link
-                  to={`/recipe/${recipe.id}`}
-                  className='text-gray-700 block px-4 py-2 text-xs'
-                  id='0'>
-                  Open recipe
-                </Link>
-                <div
-                  onClick={openCalendarModal}
-                  className='text-gray-700 block px-4 py-2 text-xs'
-                  id='1'>
-                  Move day
-                </div>
-                <p
-                  onClick={() => {
-                    removeRecipe();
-                  }}
-                  className='text-red-500 block px-4 py-2 text-xs'
-                  id='2'>
-                  Remove from my week
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
+        onClick={() => {
+          removeRecipe();
+        }}
+        className='text-red-500 block px-4 py-2 text-xs'
+        id='2'>
+        <AiOutlineCloseCircle />
       </div>
+      <div
+        onClick={openCalendarModal}
+        className='text-gray-700 block px-4 py-2 text-xs'
+        id='1'>
+        Move day
+      </div>
+      <Link to={`/recipe/${recipe.name}`} className='w-100'>
+        <div className='gradient-background'>
+          <div className='w-100'>
+            <svg
+              width='12'
+              height='12'
+              viewBox='0 0 12 12'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+              style={{ marginRight: '5px' }}>
+              <path
+                fillRule='evenodd'
+                clipRule='evenodd'
+                d='M6.00001 0.166668C9.21651 0.166668 11.8333 2.7835 11.8333 6C11.8333 9.2165 9.21651 11.8333 6.00001 11.8333C2.78351 11.8333 0.166672 9.2165 0.166672 6C0.166672 2.7835 2.78351 0.166668 6.00001 0.166668ZM6.00001 1.04167C3.26592 1.04167 1.04167 3.26592 1.04167 6C1.04167 8.73409 3.26592 10.9583 6.00001 10.9583C8.73409 10.9583 10.9583 8.73409 10.9583 6C10.9583 3.26592 8.73409 1.04167 6.00001 1.04167ZM5.80237 3.13898C6.04446 3.13898 6.23987 3.33498 6.23987 3.57648V6.15598L8.22612 7.34015C8.43321 7.4644 8.50146 7.73274 8.37779 7.9404C8.29554 8.07749 8.15029 8.1539 8.00154 8.1539C7.92512 8.1539 7.84812 8.13407 7.77754 8.09265L5.57837 6.78074C5.44654 6.7014 5.36487 6.55849 5.36487 6.40449V3.57648C5.36487 3.33498 5.56087 3.13898 5.80237 3.13898Z'
+                fill='white'
+              />
+            </svg>
+            <span>{recipe.time}</span>
+          </div>
+          <div className=' pb-1 z-10'>{recipe.name}</div>
+        </div>
+      </Link>
+      {/* {showMenu && ( */}
       {showModal && (
         <CalendarModal
           onClose={openCalendarModal}

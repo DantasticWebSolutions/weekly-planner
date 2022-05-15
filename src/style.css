@@ -4,30 +4,90 @@
     padding: 0;
 }
 
-a{
+a,
+a:hover{
     color: unset;
     text-decoration: none;
 }
+
+.button-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+.button-container a{
+    margin: 5px 0;    
+}
+
+.primary-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 80%;
+    background-color: #f06e1d;
+    align-self: center;
+    margin: 20px 0;
+    color: #fff;
+    border-radius: 5px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.secondary-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 80%;
+    background-color: #fdf5eb;
+    align-self: center;
+    margin: 10px 0;
+    color: #000;
+    border-radius: 5px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+/* RECIPE */
 
 .recipeContainer{
     display: flex;
     flex-wrap: wrap;
     /* flex-direction: row; */
     justify-content: center;
-    
-    
-    
-    
 }
 .recipeContainer a{
     flex: 47% 0;
 }
 @media screen and (max-width: 667px){
     .recipeContainer a{
-        flex: 40% 0;
+        flex: 40%;
     }
     
 } 
+
+.imgContainer{
+    width: 100%;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: -20px;
+    z-index: 0;
+}
+
+.go-back{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    border: none;
+    background: none;
+    font-size: 40px;
+}
+
 .recipeCard{
     width: 100%;
     height: 250px;
@@ -46,11 +106,130 @@ a{
     
 }
 
+.recipe-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    z-index: 1;
+    background-color: white;
+}
+
+.recipe-info-title{
+    text-align: center;
+}
+
+.energy-levels-container{
+    margin: 10px 0 30px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #fdf5eb;
+    width: 100vw;
+    margin-left: -20px;
+    padding: 10px ;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.energy-level{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.ingredients-container h2{
+    margin-bottom: 20px;
+}
+.ingredients-container p{
+    margin-left: 10px;
+}
+.ingredients-list{
+    margin-bottom: 0 !important;
+    
+}
+
+.progress-bar-container{
+    width: 100%;
+    height: 20px;
+    background-color: #fdf5eb;
+    border-radius: 5px;
+    
+}
+.progress-bar{
+    width: 100%;
+    height: 20px;
+    background-color: #f06e1d;
+    border-radius: 5px;
+
+}
+
+
+/* WEEKLY PLANNER */
+
+.dateMealContainer{
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: row; */
+    justify-content: center;
+}
+
+.dateMealContainer > div {
+    flex: 47% 0;
+}
+
+@media screen and (max-width: 667px) {
+    .dateMealContainer > div {
+        flex: 40%;
+    }
+
+}
+
 .gradient-background{
-
-
+    
     background-image: linear-gradient(transparent, black);
     width: 100%;
-    padding: 30px 20px 10px 20px;
     border-radius: 10px;
+    padding: 30px 20px 10px 20px;
 }
+
+.title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: "Montserrat";
+}
+.title .h1{
+    font-family: "Quicksand";
+    font-weight: 400;
+}
+
+
+/* confirm-alert */
+.confirm-alert-container{
+    position: fixed;
+    width: 100vw;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.confirm-alert{
+    position: fixed;
+    /* top: 0; */
+    width: 50vw;
+    top:20vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
