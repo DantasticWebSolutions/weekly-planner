@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { BsCalendarCheck } from 'react-icons/bs';
 // import {
 //   doc,
 //   getFirestore,
@@ -73,19 +74,18 @@ function RecipeCardFluid(props) {
         backgroundPosition: 'center',
       }}
       no-repeat='true'>
-      <div
-        onClick={() => {
-          removeRecipe();
-        }}
-        className='text-red-500 block px-4 py-2 text-xs'
-        id='2'>
-        <AiOutlineCloseCircle />
-      </div>
-      <div
-        onClick={openCalendarModal}
-        className='text-gray-700 block px-4 py-2 text-xs'
-        id='1'>
-        Move day
+      <div className='top-buttons-card'>
+        <div
+          onClick={() => {
+            removeRecipe();
+          }}
+          className='delete-button'
+          id='2'>
+          <AiOutlineCloseCircle />
+        </div>
+        <div onClick={openCalendarModal} className='move-day-button' id='1'>
+          <BsCalendarCheck />
+        </div>
       </div>
       <Link to={`/recipe/${recipe.name}`} className='w-100'>
         <div className='gradient-background'>

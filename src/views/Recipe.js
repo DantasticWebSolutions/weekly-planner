@@ -6,6 +6,8 @@ import { useAuth } from '../contexts/AuthContext';
 import _ from 'underscore';
 import CalendarModal from '../components/CalendarModal';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { BsCalendarCheck } from 'react-icons/bs';
 
 const Recipe = () => {
   let params = useParams();
@@ -96,7 +98,7 @@ const Recipe = () => {
 
   return (
     <div>
-      {!loading ? (
+      {!loading && (
         <div>
           <button
             className='go-back'
@@ -112,23 +114,41 @@ const Recipe = () => {
             <div className='recipe-info-title'>
               {/* <h6>{recipe.difficulty_level}</h6> */}
               <h5>{recipe.time}</h5>
-              <h1>{recipe.name}</h1>
+              <div className='recipe-info-titile-buttons-container'>
+                <div className='recipe-info-titile-button'>
+                  <button
+                    onClick={addIngredientsToShoppingList}
+                    className=''
+                    id='0'>
+                    <AiOutlineShoppingCart />
+                  </button>
+                  {/* <span>Shopping List</span> */}
+                </div>
+
+                <h1>{recipe.name}</h1>
+                <div className='recipe-info-titile-button'>
+                  <button onClick={openCalendarModal} className='' id='1'>
+                    <BsCalendarCheck />
+                  </button>
+                  {/* <span>Calendar</span> */}
+                </div>
+              </div>
             </div>
             <div className='energy-levels-container'>
               <div className='energy-level'>
-                <span>100 k</span>
+                <span>{recipe.energy} k</span>
                 <span>Energy</span>
               </div>
               <div className='energy-level'>
-                <span>100 g</span>
+                <span>{`${recipe.protein}`} g</span>
                 <span>Protein</span>
               </div>
               <div className='energy-level'>
-                <span>100 g</span>
+                <span>{recipe.carbs} g</span>
                 <span>Carbs</span>
               </div>
               <div className='energy-level'>
-                <span>100 g</span>
+                <span>{recipe.fat} g</span>
                 <span>Fat</span>
               </div>
             </div>
@@ -158,18 +178,8 @@ const Recipe = () => {
               <span>START COOKING</span>
               <IoIosArrowForward />
             </Link>
-
-            <button onClick={addIngredientsToShoppingList} className='' id='0'>
-              Add to shopping list
-            </button>
-
-            <button onClick={openCalendarModal} className='' id='1'>
-              Add to my week
-            </button>
           </div>
         </div>
-      ) : (
-        'Still Loading'
       )}
       {showModal && (
         <CalendarModal

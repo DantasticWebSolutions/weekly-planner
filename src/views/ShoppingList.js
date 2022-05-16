@@ -137,22 +137,18 @@ const ShoppingList = () => {
 
   return (
     <div>
-      ShoppingList
+      {/* ShoppingList */}
       {!loading && shoppingList.length === 0 && (
-        <div
-          className={
-            'mb-25 p-4 flex flex-col justify-center h-auto items-center space-y-5 text-sm ' +
-            (window.innerHeight < 700 ? 'py-auto' : 'py-28')
-          }>
+        <div className={'' + (window.innerHeight < 700 ? 'py-auto' : 'py-28')}>
           {/* <img src={empty} alt='empty cart'></img> */}
           <p>Your shopping list is empty.</p>
         </div>
       )}
       {!loading && shoppingList.length > 0 && (
-        <div className='mb-2 p-4 pb-12 h-full flex flex-col  space-y-5 divide-y divide-dashed divide-gray-300'>
-          <div className='min-h-max flex flex-col space-y-2 pb-2'>
-            <div className='flex flex-row justify-between items-center'>
-              <h2 className='text-lg'>To Buy:</h2>
+        <div className=''>
+          <div className=''>
+            <div className='heading-shoppingList'>
+              <h2>To Buy:</h2>
               <button onClick={confirmDelete}>
                 <svg
                   width='20'
@@ -169,23 +165,24 @@ const ShoppingList = () => {
                 </svg>
               </button>
             </div>
-            <div className='flex flex-col space-y-2'>
+            <div className='ingredients-container'>
               {Object.values(toBuy).map((ingredient, index) => (
                 <fieldset
                   id={'checkbox' + index}
                   key={index}
                   className='space-y-5'>
-                  <div className='relative flex items-start'>
-                    <div className='flex items-center h-5'>
+                  <div className='ingredient'>
+                    <label className='checkbox'>
                       <input
                         id={index}
                         name='checkBoxItem'
                         checked={checkedState[index]}
                         onChange={() => handleOnChange(index)}
                         type='checkbox'
-                        className='focus:ring-brand-orange h-4 w-4 text-brand-orange border-gray-300 rounded '
+                        className=''
                       />
-                    </div>
+                      <span class='checkmark'></span>
+                    </label>
                     <div className='ml-3 text-sm'>
                       <label
                         htmlFor={index}

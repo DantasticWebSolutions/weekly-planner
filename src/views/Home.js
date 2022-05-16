@@ -3,9 +3,11 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import { Link } from 'react-router-dom';
 import RecipeCard from '../components/RecipeCard';
+import { useAuth } from '../contexts/AuthContext';
 
 const Home = () => {
   const [recipes, setRecipes] = useState([]);
+  const { currentUser } = useAuth();
   const getRecipes = async () => {
     try {
       const recipesSnap = await getDocs(collection(db, 'recipes'));
@@ -33,8 +35,13 @@ const Home = () => {
   return (
     <div>
       <div className='title mt-4 mb-2'>
-        <span className='h1'>Hello Dan</span>
-        <span className='h6'>What are you going to cook today?</span>
+        <h1>
+          Hello{' '}
+          {currentUser.displayName
+            ? currentUser.displayName
+            : currentUser.email}
+        </h1>
+        <h6>What are you going to cook today?</h6>
       </div>
       <div className='recipeContainer'>
         {recipes.map((recipe) => (

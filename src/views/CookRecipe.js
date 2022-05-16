@@ -110,9 +110,13 @@ const CookRecipe = () => {
           </div>
         ) : (
           <div className='button-container'>
-            <Link to='/' className='secondary-button'>
-              Cancel
-            </Link>
+            <button
+              onClick={() => {
+                navigate(-1);
+              }}
+              className='secondary-button'>
+              Back
+            </button>
             <Link
               className='primary-button'
               onClick={updateState}
