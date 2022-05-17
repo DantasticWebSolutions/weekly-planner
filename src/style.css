@@ -33,6 +33,10 @@ button{
     margin: 2px 0 !important;
 }
 
+.orange{
+    color: #f06e1d;
+}
+
 .margin-top-10{
     margin-top: 40px !important;
 }
@@ -280,8 +284,8 @@ button{
 /* SHOPPING LIST */
 .heading-shoppingList{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
 }
 .heading-shoppingList > *{
     margin: 10px;

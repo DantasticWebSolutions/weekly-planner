@@ -105,7 +105,7 @@ const Recipe = () => {
             onClick={() => {
               navigate(-1);
             }}>
-            <IoIosArrowBack />
+            <IoIosArrowBack className='orange' />
           </button>
           <div
             className='imgContainer'
