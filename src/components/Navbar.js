@@ -3,7 +3,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { GoHome } from 'react-icons/go';
-import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai';
 import { BsCalendarCheck } from 'react-icons/bs';
 
 export default function NavbarComponent() {
@@ -62,11 +62,15 @@ export default function NavbarComponent() {
             className={`navbar-photo-container ${
               splitLocation[1] === 'update-profile' ? 'active' : ''
             }`}>
-            <img
-              src={currentUser.photoURL}
-              alt='user'
-              className='navbar-photo'
-            />
+            {currentUser.photoURL ? (
+              <img
+                src={currentUser.photoURL}
+                alt='user'
+                className='navbar-photo'
+              />
+            ) : (
+              <AiOutlineUser className='navbar-icon' />
+            )}
             Profile
           </div>
         </Nav.Link>

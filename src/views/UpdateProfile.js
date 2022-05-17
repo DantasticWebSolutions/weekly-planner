@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Form, Alert } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { AiOutlineUser } from 'react-icons/ai';
 
 export default function UpdateProfile() {
   const emailRef = useRef();
@@ -62,7 +63,15 @@ export default function UpdateProfile() {
       <div className='update-profile-container'>
         <div>
           <div className='user-photo-container'>
-            <img src={currentUser.photoURL} alt='user' className='user-photo' />
+            {currentUser.photoURL ? (
+              <img
+                src={currentUser.photoURL}
+                alt='user'
+                className='user-photo'
+              />
+            ) : (
+              <AiOutlineUser className='user-photo' />
+            )}
           </div>
           <div className='title'>
             <h2 className='text-center mb-5'>
@@ -110,11 +119,9 @@ export default function UpdateProfile() {
               </button>
             </div>
             <div className='button-container margin-5'>
-              <div className='primary-button'>
-                <button variant='link' onClick={handleLogout}>
-                  Log Out
-                </button>
-              </div>
+              <button className='primary-button' onClick={handleLogout}>
+                Log Out
+              </button>
             </div>
           </Form>
         </div>

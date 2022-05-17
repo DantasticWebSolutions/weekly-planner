@@ -30,7 +30,7 @@ button{
 .margin-5, 
 .margin-5 > *
 {
-    margin: 5px !important;
+    margin: 2px 0 !important;
 }
 
 .margin-top-10{
@@ -399,6 +399,9 @@ button{
     align-self: center;
     width: 200px;
     border: 5px solid #f06e1d;
+    font-size: 200px;
+    font-weight: 300;
+    color: #f06e1d;
 }
 
 .update-profile-input{
