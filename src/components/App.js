@@ -7,7 +7,7 @@ import Dashboard from './Profile';
 import Login from './Login';
 import PrivateRoute from './PrivateRoute';
 import ForgotPassword from './ForgotPassword';
-import UpdateProfile from './UpdateProfile';
+import UpdateProfile from '../views/UpdateProfile';
 import Home from '../views/Home';
 import Recipe from '../views/Recipe';
 import CookRecipe from '../views/CookRecipe';

@@ -9,7 +9,7 @@ const PrivateRoute = ({ Component }) => {
 
   return currentUser ? (
     <div>
-      <div style={{ marginBottom: '100px' }}>
+      <div style={{ marginBottom: '140px' }}>
         <Component />
       </div>
       <Navbar />
@@ -20,23 +20,3 @@ const PrivateRoute = ({ Component }) => {
 };
 
 export default PrivateRoute;
-
-// import React, { Component } from 'react';
-// // import { Route, Navigate } from 'react-router-dom';
-// import { useAuth } from '../contexts/AuthContext';
-// import { Route, Navigate, Outlet, useLocation } from 'react-router-dom';
-
-// export default function PrivateRoute({ component: Component, ...rest }) {
-//   const { currentUser } = useAuth();
-//   const location = useLocation();
-//   return (
-//     <Route
-//       render={(props) => {
-//         return currentUser ? (
-//           <Component {...props} />
-//         ) : (
-//           <Navigate to='/login' state={{ from: location }} />
-//         );
-//       }}></Route>
-//   );
-// }

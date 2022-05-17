@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
-import { Navbar, Nav, Offcanvas } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { FcTodoList } from 'react-icons/fc';
+import { Navbar, Nav } from 'react-bootstrap';
+import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-// import Profile from "./authentication/Profile";
+import { GoHome } from 'react-icons/go';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { BsCalendarCheck } from 'react-icons/bs';
 
 export default function NavbarComponent() {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
-
   const [expanded] = useState(false);
   const { currentUser } = useAuth();
+
+  //assigning location variable
+  const location = useLocation();
+
+  //destructuring pathname from location
+  const { pathname } = location;
+
+  //Javascript split method to get the name of the path in array
+  const splitLocation = pathname.split('/');
   return (
     <Navbar
-      bg='light'
+      // bg='light'
+      className='navbar'
       expand='sm'
       expanded={expanded}
       style={{
@@ -23,74 +29,48 @@ export default function NavbarComponent() {
         bottom: '0',
         width: '100vw',
       }}>
-      {/* <Navbar.Brand as={Link} to="/">
-        Student Hub
-      </Navbar.Brand> */}
-
       <Nav className='w-100 d-flex flex-row align-items-center justify-content-around'>
         <Nav.Link as={Link} to='/'>
-          Home
+          <div
+            className={`navbar-link ${
+              splitLocation[1] === '' ? 'active' : ''
+            }`}>
+            <GoHome className='navbar-icon' />
+            Home
+          </div>
         </Nav.Link>
         <Nav.Link as={Link} to='/weekly-planner'>
-          Weekly Planner
+          <div
+            className={`navbar-link ${
+              splitLocation[1] === 'weekly-planner' ? 'active' : ''
+            }`}>
+            <BsCalendarCheck className='navbar-icon smaller-font' />
+            Planner
+          </div>
         </Nav.Link>
         <Nav.Link as={Link} to='/shopping-list'>
-          Shopping List
+          <div
+            className={`navbar-link ${
+              splitLocation[1] === 'shopping-list' ? 'active' : ''
+            }`}>
+            <AiOutlineShoppingCart className='navbar-icon' />
+            Grocery
+          </div>
         </Nav.Link>
-        <Nav.Link as={Link} to='/profile'>
-          Profile
+        <Nav.Link as={Link} to='/update-profile'>
+          <div
+            className={`navbar-photo-container ${
+              splitLocation[1] === 'update-profile' ? 'active' : ''
+            }`}>
+            <img
+              src={currentUser.photoURL}
+              alt='user'
+              className='navbar-photo'
+            />
+            Profile
+          </div>
         </Nav.Link>
       </Nav>
-
-      {/* <Navbar.Toggle
-        // onClick={() => setExpanded(expanded ? false : "expanded")}
-        onClick={handleShow}
-        expand={false}
-        aria-controls='responsive-navbar-nav'
-      /> */}
-
-      <Offcanvas show={show} onHide={handleClose} placement='end'>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Hello {currentUser.email}</Offcanvas.Title>
-        </Offcanvas.Header>
-        <div className='flexCol'>
-          <Offcanvas.Body className=' menuItemsContainer'>
-            <Nav.Link as={Link} to='/chat'>
-              <div className='menuProperty'>
-                <div className='weatherPropertyDesc '>
-                  <FcTodoList />
-                  <span>Chat</span>
-                </div>
-              </div>
-            </Nav.Link>
-            <Nav.Link as={Link} to='/drive'>
-              <div className='menuProperty'>
-                <div className='weatherPropertyDesc '>
-                  <FcTodoList />
-                  <span>Drive</span>
-                </div>
-              </div>
-            </Nav.Link>
-            <Nav.Link as={Link} to='/todo'>
-              <div className='menuProperty'>
-                <div className='weatherPropertyDesc '>
-                  <FcTodoList />
-                  <span>Todo</span>
-                </div>
-              </div>
-            </Nav.Link>
-            <Nav.Link as={Link} to='/user'>
-              <div className='menuProperty'>
-                <div className='weatherPropertyDesc '>
-                  <FcTodoList />
-                  <span>Profile</span>
-                </div>
-              </div>
-            </Nav.Link>
-            {/* <Profile /> */}
-          </Offcanvas.Body>
-        </div>
-      </Offcanvas>
     </Navbar>
   );
 }

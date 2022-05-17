@@ -1,13 +1,13 @@
 import React, { useRef, useState } from 'react';
-import { Form, Button, Card, Alert } from 'react-bootstrap';
+import { Form, Alert } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function UpdateProfile() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { currentUser, updateUserPassword, updateEmail } = useAuth();
+  const { currentUser, updateUserPassword, updateEmail, logout } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -47,11 +47,30 @@ export default function UpdateProfile() {
     }
   }
 
+  async function handleLogout() {
+    setError('');
+
+    try {
+      await logout();
+      navigate('/login');
+    } catch {
+      setError('Failed to log out');
+    }
+  }
   return (
     <>
-      <Card>
-        <Card.Body>
-          <h2 className='text-center mb-4'>Update Profile</h2>
+      <div className='update-profile-container'>
+        <div>
+          <div className='user-photo-container'>
+            <img src={currentUser.photoURL} alt='user' className='user-photo' />
+          </div>
+          <div className='title'>
+            <h2 className='text-center mb-5'>
+              {currentUser.displayName
+                ? currentUser.displayName
+                : currentUser.email}
+            </h2>
+          </div>
           {error && <Alert variant='danger'>{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id='email' className='mb-2'>
@@ -61,11 +80,13 @@ export default function UpdateProfile() {
                 ref={emailRef}
                 required
                 defaultValue={currentUser.email}
+                className='update-profile-input'
               />
             </Form.Group>
             <Form.Group id='password' className='mb-2'>
               <Form.Label>Password</Form.Label>
               <Form.Control
+                className='update-profile-input'
                 type='password'
                 ref={passwordRef}
                 placeholder='Leave blank to keep the same'
@@ -75,21 +96,28 @@ export default function UpdateProfile() {
               <Form.Label>Password Confirmation</Form.Label>
               <Form.Control
                 type='password'
+                className='update-profile-input'
                 ref={passwordConfirmRef}
                 placeholder='Leave blank to keep the same'
               />
             </Form.Group>
-            <Button
-              disabled={loading}
-              className='w-100 mt-2 mb-2'
-              type='submit'>
-              Update
-            </Button>
+            <div className='button-container margin-5 margin-top-10'>
+              <button
+                disabled={loading}
+                className='secondary-button black'
+                type='submit'>
+                Update
+              </button>
+            </div>
+            <div className='button-container margin-5'>
+              <div className='primary-button'>
+                <button variant='link' onClick={handleLogout}>
+                  Log Out
+                </button>
+              </div>
+            </div>
           </Form>
-        </Card.Body>
-      </Card>
-      <div className='w-100 text-center mt-2'>
-        <Link to='/'>Cancel</Link>
+        </div>
       </div>
     </>
   );
