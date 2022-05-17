@@ -1,7 +1,10 @@
 import React, { useRef, useState } from 'react';
-import { Form, Button, Card, Alert } from 'react-bootstrap';
+import { Form, Alert } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
+import background from '../assets/background.jpg';
+import SignInGoogle from './SignInGoogle';
+import SignInFacebook from './SignInFacebook';
 
 export default function Signup() {
   const emailRef = useRef();
@@ -40,36 +43,70 @@ export default function Signup() {
   }
 
   return (
-    <>
-      <Card>
-        <Card.Body>
-          <h2 className='text-center mb-4'>Sign Up</h2>
-          {error && <Alert variant='danger'>{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id='email' className='mb-2'>
-              <Form.Label>Email</Form.Label>
-              <Form.Control type='email' ref={emailRef} required />
-            </Form.Group>
-            <Form.Group id='password' className='mb-2'>
-              <Form.Label>Password</Form.Label>
-              <Form.Control type='password' ref={passwordRef} required />
-            </Form.Group>
-            <Form.Group id='password-confirm'>
-              <Form.Label>Password Confirmation</Form.Label>
-              <Form.Control type='password' ref={passwordConfirmRef} required />
-            </Form.Group>
-            <Button
-              disabled={loading}
-              className='w-100 mt-4 mb-2'
-              type='submit'>
-              Sign Up
-            </Button>
-          </Form>
-        </Card.Body>
-      </Card>
-      <div className='w-100 text-center mt-2'>
-        Already have an account? <Link to='/login'>Log In</Link>
+    <div className='login-container'>
+      <div
+        className='imageContainer'
+        style={{ backgroundImage: `url(${background})` }}>
+        {/* <img src="" alt=""> */}
+        <div className='login-gradient-background'></div>
       </div>
-    </>
+      <div className='inside-login-container'>
+        {error && <Alert variant='danger'>{error}</Alert>}
+        <Form onSubmit={handleSubmit}>
+          <Form.Group id='email' className='mb-2'>
+            <Form.Control
+              className='login-input'
+              placeholder='Email'
+              type='email'
+              ref={emailRef}
+              required
+            />
+          </Form.Group>
+          <Form.Group id='password' className='mb-2'>
+            <Form.Control
+              placeholder='Password'
+              className='login-input'
+              type='password'
+              ref={passwordRef}
+              required
+            />
+          </Form.Group>
+          <Form.Group id='password-confirm'>
+            <Form.Control
+              placeholder='Confirm Password'
+              className='login-input'
+              type='password'
+              ref={passwordConfirmRef}
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <button
+              disabled={loading}
+              type='submit'
+              className='primary-button black mt-4'
+              style={{ margin: '5px 0' }}>
+              Sign Up
+            </button>
+          </Form.Group>
+        </Form>
+        <div className='w-100 text-center mt-2'>
+          Already have an account?{' '}
+          <Link to='/login' className='link'>
+            Log In
+          </Link>
+        </div>
+        <div
+          className='button-container no-margin flex-column'
+          style={{ margin: '0 !important' }}>
+          <SignInGoogle />
+        </div>
+        <div
+          className='button-container no-margin flex-column'
+          style={{ margin: '0 !important' }}>
+          <SignInFacebook />
+        </div>
+      </div>
+    </div>
   );
 }

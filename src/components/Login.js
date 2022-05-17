@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react';
-import { Form, Button, Card, Alert } from 'react-bootstrap';
+import { Form, Alert } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
-import CenteredContainer from './CenteredContainer';
 import SignInGoogle from './SignInGoogle';
 import SignInFacebook from './SignInFacebook';
+import background from '../assets/background.jpg';
 
 export default function Login() {
   const emailRef = useRef();
@@ -14,20 +14,8 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // async function signInWithGoogle() {
-  //   try {
-  //     setError("");
-  //     setLoading(true);
-  //     await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-  //     history.push("/");
-  //   } catch {
-  //     setError("Failed to log in with Google");
-  //   }
-  // }
-
   async function handleSubmit(e) {
     e.preventDefault();
-
     try {
       setError('');
       setLoading(true);
@@ -41,74 +29,67 @@ export default function Login() {
   }
 
   return (
-    <CenteredContainer>
-      <Card>
-        <Card.Body>
-          <h2 className='text-center mb-4'>Log In</h2>
-          {error && <Alert variant='danger'>{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id='email' className='mb-2'>
-              <Form.Label>Email</Form.Label>
-              <Form.Control type='email' ref={emailRef} required />
-            </Form.Group>
-            <Form.Group id='password'>
-              <Form.Label>Password</Form.Label>
-              <Form.Control type='password' ref={passwordRef} required />
-            </Form.Group>
-            <Form.Group id='button'>
-              <Button disabled={loading} className='w-100 mt-4' type='submit'>
-                Log In
-              </Button>
-            </Form.Group>
-          </Form>
-          <div className='w-100 text-center mt-3'>
+    <div className='login-container'>
+      <div
+        className='imageContainer'
+        style={{ backgroundImage: `url(${background})` }}>
+        {/* <img src="" alt=""> */}
+        <div className='login-gradient-background'></div>
+      </div>
+      <div className='inside-login-container'>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group id='email' className='mb-2'>
+            {error && <Alert variant='danger'>{error}</Alert>}
+            <Form.Control
+              type='email'
+              ref={emailRef}
+              placeholder='Email'
+              className='login-input'
+              required
+            />
+          </Form.Group>
+          <Form.Group id='password'>
+            <Form.Control
+              type='password'
+              ref={passwordRef}
+              placeholder='Password'
+              className='login-input'
+              required
+            />
+          </Form.Group>
+          <div className='w-100 text-left mt-2 link'>
             <Link to='/forgot-password'>Forgot Password?</Link>
           </div>
-        </Card.Body>
-      </Card>
-      <div className='w-100 text-center mt-2'>
-        Need an account? <Link to='/signup'>Sign Up</Link>
+          <Form.Group id='button'>
+            <div className='button-container no-margin'>
+              <button
+                disabled={loading}
+                className='primary-button black mt-4'
+                type='submit'
+                style={{ margin: '5px 0' }}>
+                Log In
+              </button>
+            </div>
+          </Form.Group>
+        </Form>
+
+        <div className='w-100 text-center'>
+          Need an account?{' '}
+          <Link to='/signup' className='link'>
+            Sign Up
+          </Link>
+        </div>
+        <div
+          className='button-container no-margin flex-column'
+          style={{ margin: '0 !important' }}>
+          <SignInGoogle />
+        </div>
+        <div
+          className='button-container no-margin flex-column'
+          style={{ margin: '0 !important' }}>
+          <SignInFacebook />
+        </div>
       </div>
-      <br />
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <hr style={{ width: '40%' }} />
-        or
-        <hr style={{ width: '40%' }} />
-      </div>
-      <br />
-      <SignInGoogle />
-      <hr />
-      <SignInFacebook />
-      {/* <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <button
-          onClick={signInWithGoogle}
-          style={{
-            border: "none",
-            background: "transparent",
-            width: "80%",
-            outline: "none",
-          }}
-        >
-          <img
-            style={{ border: "none", background: "transparent", width: "100%" }}
-            src={signInWithGooglePng}
-            alt="Sign In With Google"
-          />
-        </button>
-      </div> */}
-    </CenteredContainer>
+    </div>
   );
 }

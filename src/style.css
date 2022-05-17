@@ -40,6 +40,9 @@ button{
 .margin-top-10{
     margin-top: 40px !important;
 }
+.no-margin{
+    margin: 0 !important;
+}
 
 .primary-button{
 
@@ -48,7 +51,7 @@ button{
     justify-content: center;
     align-items: center;
     height: 50px;
-    width: 80%;
+    width: 100%;
     background-color: #f06e1d;
     align-self: center;
     margin: 20px 0;
@@ -65,7 +68,7 @@ button{
     justify-content: center;
     align-items: center;
     height: 50px;
-    width: 80%;
+    width: 100%;
     background-color: #fdf5eb;
     align-self: center;
     margin: 10px 0;
@@ -494,6 +497,93 @@ button{
 /* .navbar-light .navbar-nav .nav-link:focus .navbar-photo {
     border: 2px solid #f06e1d;
 } */
+
+/* LOG IN */
+
+.login-container{
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    min-height: 100vh;
+    color: #fff;
+}
+.inside-login-container{
+    background-color: #f06e1d;
+    padding: 50px 5%;
+    width: 100%;
+    min-height: 60vh;
+}
+
+.login-gradient-background{
+    background-image: linear-gradient(transparent, #f06e1d);
+    width: 100%;
+    padding: 200px 20px 10px 20px;
+    border: none;
+    margin-bottom: -5px;
+}
+
+.imageContainer{
+    width: 100%;
+    height: 100%;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.login-input {
+    background-color: white;
+    border: none;
+    padding: 15px 10px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+ 
+}
+.login-input:focus {
+
+    /* background-color: #fdf5eb; */
+    box-shadow: 0 0 0 0.25rem rgba(240, 110, 29, 0.5);
+}
+
+.link{
+    text-decoration: underline;
+}
+.social-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: white;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px 20px;
+    margin-bottom: 10px;
+}
+
+.social-button img{
+    margin: 0 5px !important;
+    width: 50px;
+}
+
+.login-icon{
+    margin: 0 10px;
+}
+
+.white,
+.white:hover
+{
+    background: #fff;
+    color: #000;
+}
+
+
+
 /* confirm-alert */
 .confirm-alert-container{
     position: fixed;

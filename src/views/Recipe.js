@@ -136,7 +136,7 @@ const Recipe = () => {
             </div>
             <div className='energy-levels-container'>
               <div className='energy-level'>
-                <span>{recipe.energy} k</span>
+                <span>{recipe.energy} kcal</span>
                 <span>Energy</span>
               </div>
               <div className='energy-level'>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Button, Alert } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { ImFacebook2 } from 'react-icons/im';
 
 export default function SignInFacebook() {
   const { signInWithFacebook } = useAuth();
@@ -20,26 +21,14 @@ export default function SignInFacebook() {
 
   return (
     <>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Button
-          onClick={signInWithFacebookHandler}
-          // style={{
-          //   border: "none",
-          //   background: "transparent",
-          //   width: "80%",
-          //   outline: "none",
-          // }}
-        >
-          Sign in with Facebook
-        </Button>
-        {error && <Alert variant='danger'>{error}</Alert>}
-      </div>
+      <button
+        onClick={signInWithFacebookHandler}
+        className='primary-button white no-margin'
+        style={{ marginBottom: '10px !important' }}>
+        <ImFacebook2 className='login-icon' />
+        <span>Continue with Facebook</span>
+      </button>
+      {error && <Alert variant='danger'>{error}</Alert>}
     </>
   );
 }

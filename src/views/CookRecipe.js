@@ -77,7 +77,7 @@ const CookRecipe = () => {
             onClick={() => {
               navigate(-1);
             }}>
-            <IoIosArrowBack />
+            <IoIosArrowBack className='orange' />
           </button>
           <div
             className='imgContainer'
@@ -86,9 +86,7 @@ const CookRecipe = () => {
       )}
 
       <div className='recipe-info'>
-        {loading ? (
-          '-/-'
-        ) : (
+        {!loading && (
           <div style={{ textAlign: 'center' }}>
             <h1>{recipe.name}</h1>
             <div style={{ marginBottom: '10px' }}>
