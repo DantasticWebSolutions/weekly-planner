@@ -297,6 +297,8 @@ button{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 1.5rem;
+    text-align: center;
 }
 
 .weekly-planner-no-recipes-icon{

@@ -236,8 +236,8 @@ const WeeklyPlanner = () => {
     <div>
       {!loading && planner.length === 0 && (
         <div className={'weekly-planner-no-recipes'}>
-          <h1>Your weekly planner is empty.</h1>
-          <p>Add some recipes to the planner from the main page</p>
+          <h1>Your Planner is empty.</h1>
+          <p>Add some recipes to the planner from the home page</p>
           <Link to='/'>
             <BsCalendar2Plus className='weekly-planner-no-recipes-icon' />
           </Link>

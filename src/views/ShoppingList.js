@@ -157,8 +157,8 @@ const ShoppingList = () => {
       {/* ShoppingList */}
       {!loading && shoppingList.length === 0 && (
         <div className={'weekly-planner-no-recipes'}>
-          <h1>Your Grocery list is empty.</h1>
-          <p>Add some recipes to the grocery list from the main page</p>
+          <h1>Your List is empty.</h1>
+          <p>Add some recipes to the grocery list from the home page</p>
           <Link to='/'>
             <MdAddShoppingCart className='weekly-planner-no-recipes-icon' />
           </Link>
