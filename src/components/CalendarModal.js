@@ -2,10 +2,10 @@ import Calendar from 'react-calendar';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import 'react-calendar/dist/Calendar.css';
-// import { DateTime } from 'luxon';
+import { Modal } from 'react-bootstrap';
 
 function CalendarModal(props) {
-  let { value, onClose, onSelectedDate } = props;
+  let { value, onClose, onSelectedDate, showModal } = props;
   const [calendarValue, setCalendarValue] = useState(new Date());
   const [formattedCalendarValue, setFormattedCalendarValue] = useState();
 
@@ -29,39 +29,48 @@ function CalendarModal(props) {
   }
 
   return (
-    <div className='z-50'>
-      <svg
-        id='react-confirm-alert-firm-svg'
-        className='react-confirm-alert-svg'>
-        <filter id='gaussian-blur'>
-          <feGaussianBlur stdDeviation='0.3'></feGaussianBlur>
-        </filter>
-      </svg>
-      <div className='react-confirm-alert-overlay undefined'>
-        <div className='react-confirm-alert'>
-          <div className='font-koho flex flex-col bg-gray-50 text-gray-900 px-6 py-4 rounded-sm'>
-            <Calendar
-              className={
-                'flex flex-col justify-center space-y-3 items-center calendar'
-              }
-              onChange={onCalendarChange}
-              value={value}
-              minDate={new Date()}
-            />
-            <div className='flex flex-row justify-between mt-6 mx-3'>
-              <button onClick={onClose}>Cancel</button>
-              <button
-                className='w-1/2 bg-brand-orange text-white py-1 px-3 rounded-sm'
-                onClick={() => {
-                  handleSave();
-                }}>
-                Save
-              </button>
+    <Modal show={showModal} onHide={onClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Choose Date for Meal</Modal.Title>
+      </Modal.Header>
+      <Modal.Body className='confirm-alert'>
+        {/* <svg
+          id='react-confirm-alert-firm-svg'
+          className='react-confirm-alert-svg'>
+          <filter id='gaussian-blur'>
+            <feGaussianBlur stdDeviation='0.3'></feGaussianBlur>
+          </filter>
+        </svg> */}
+        <div className='react-confirm-alert-overlay undefined'>
+          <div className='react-confirm-alert'>
+            <div className='font-koho flex flex-col bg-gray-50 text-gray-900 px-6 py-4 rounded-sm'>
+              <Calendar
+                className={
+                  'flex flex-col justify-center space-y-3 items-center calendar'
+                }
+                onChange={onCalendarChange}
+                value={value}
+                minDate={new Date()}
+              />
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </Modal.Body>
+      <Modal.Footer className='modal-footer'>
+        <div className='button-container'>
+          <button onClick={onClose} className='secondary-button'>
+            Cancel
+          </button>
+          <button
+            className='rounded-sm primary-button'
+            onClick={() => {
+              handleSave();
+            }}>
+            Save
+          </button>
+        </div>
+      </Modal.Footer>
+    </Modal>
   );
 }
 

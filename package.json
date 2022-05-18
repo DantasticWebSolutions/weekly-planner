@@ -15,6 +15,7 @@
     "react-confirm-alert": "^2.8.0",
     "react-dom": "17.0.0",
     "react-icons": "^4.3.1",
+    "react-notifications": "^1.7.3",
     "react-router-dom": "6.2.1",
     "react-scripts": "3.4.3",
     "underscore": "^1.13.3"

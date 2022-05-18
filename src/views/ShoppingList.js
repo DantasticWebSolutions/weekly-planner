@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { doc, collection, getDocs, deleteDoc } from 'firebase/firestore';
 import { confirmAlert } from 'react-confirm-alert';
+import { MdAddShoppingCart } from 'react-icons/md';
+import { Link } from 'react-router-dom';
+import { Modal } from 'react-bootstrap';
 
 const ShoppingList = () => {
   const userUID = localStorage.getItem('userUID');
@@ -96,40 +99,54 @@ const ShoppingList = () => {
     setCheckedState([]);
   };
 
+  const [show, setShow] = useState(true);
+  // const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const confirmDelete = () => {
+    handleShow();
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
-          <div className=''>
-            <h1 className=''>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                className=''
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'>
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth='2'
-                  d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z'
-                />
-              </svg>
-              <span>Are you sure?</span>
-            </h1>
-            <p className=''>All items will be deleted from your list.</p>
-            <div className='flex flex-row justify-between mt-5'>
-              <button onClick={onClose}>Cancel</button>
-              <button
-                className='bg-red-500 text-white py-1 px-3 rounded-sm'
-                onClick={() => {
-                  handleClickDelete(userUID);
-                  onClose();
-                }}>
-                Yes, Delete it!
-              </button>
-            </div>
-          </div>
+          <Modal show={show} onHide={onClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Delete Grocery List </Modal.Title>
+            </Modal.Header>
+            <Modal.Body className='confirm-alert'>
+              <h1 className='flex flex-row space-x-2'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  className=''
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='#f06e1d'>
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
+                    d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z'
+                  />
+                </svg>
+                <span>Are you sure?</span>
+              </h1>
+              <p className=''>All items will be deleted from your list.</p>
+            </Modal.Body>
+            <Modal.Footer className='modal-footer'>
+              <div className='button-container'>
+                <button className='secondary-button' onClick={onClose}>
+                  Cancel
+                </button>
+                <button
+                  className='bg-red-500 text-white py-1 px-3 rounded-sm primary-button'
+                  onClick={() => {
+                    handleClickDelete(userUID);
+                    onClose();
+                  }}>
+                  Yes, Delete it!
+                </button>
+              </div>
+            </Modal.Footer>
+          </Modal>
         );
       },
     });
@@ -139,13 +156,16 @@ const ShoppingList = () => {
     <div>
       {/* ShoppingList */}
       {!loading && shoppingList.length === 0 && (
-        <div className={'' + (window.innerHeight < 700 ? 'py-auto' : 'py-28')}>
-          {/* <img src={empty} alt='empty cart'></img> */}
-          <p>Your shopping list is empty.</p>
+        <div className={'weekly-planner-no-recipes'}>
+          <h1>Your Grocery list is empty.</h1>
+          <p>Add some recipes to the grocery list from the main page</p>
+          <Link to='/'>
+            <MdAddShoppingCart className='weekly-planner-no-recipes-icon' />
+          </Link>
         </div>
       )}
       {!loading && shoppingList.length > 0 && (
-        <div className=''>
+        <div className='ingredients-list-container'>
           <div className=''>
             <div className='heading-shoppingList'>
               <div className='title mt-4 mb-2'>

@@ -99,14 +99,8 @@ const CookRecipe = () => {
             </div>
           </div>
         )}
-        <div className='pt-4 leading-relaxed text-gray-800'>
-          {loading ? 'Loading' : step}
-        </div>
-        {loading ? (
-          <div className='loading'>
-            <span>Loading</span>
-          </div>
-        ) : (
+        <div className='step'>{!loading && step}</div>
+        {!loading && (
           <div className='button-container'>
             <button
               onClick={() => {

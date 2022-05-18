@@ -13,10 +13,13 @@ import Recipe from '../views/Recipe';
 import CookRecipe from '../views/CookRecipe';
 import ShoppingList from '../views/ShoppingList';
 import WeeklyPlanner from '../views/WeeklyPlanner';
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer } from 'react-notifications';
 
 function App() {
   return (
     <>
+      <NotificationContainer />
       <Router>
         <AuthProvider>
           <Routes>

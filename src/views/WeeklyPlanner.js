@@ -10,8 +10,35 @@ import {
 } from 'firebase/firestore';
 import { confirmAlert } from 'react-confirm-alert';
 import RecipeCardFluid from '../components/RecipeCardFluid';
+import { BsCalendar2Plus } from 'react-icons/bs';
+import { Link, useNavigate } from 'react-router-dom';
+import { Modal } from 'react-bootstrap';
+import { NotificationManager } from 'react-notifications';
+
+// NOTIFICATION
+const createNotification = (type, message) => {
+  return () => {
+    switch (type) {
+      case 'info':
+        NotificationManager.info(message);
+        break;
+      case 'success':
+        NotificationManager.success(message, 'Success', 1000);
+        break;
+      case 'warning':
+        NotificationManager.warning(message, 'Warning', 3000);
+        break;
+      case 'error':
+        NotificationManager.error(message, 'Error', 5000);
+        break;
+      default:
+        break;
+    }
+  };
+};
 
 const WeeklyPlanner = () => {
+  const navigate = useNavigate();
   const userUID = localStorage.getItem('userUID');
 
   const [loading, setLoading] = useState(true);
@@ -66,19 +93,26 @@ const WeeklyPlanner = () => {
     setLoading(false);
   };
 
+  const [show, setShow] = useState(true);
+  // const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const confirmDelete = (id) => {
+    handleShow();
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
-          <div className='confirm-alert-container'>
-            <div className='confirm-alert'>
+          <Modal show={show} onHide={onClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Delete Meal</Modal.Title>
+            </Modal.Header>
+            <Modal.Body className='confirm-alert'>
               <h1 className='flex flex-row space-x-2'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='text-red-400 h-6 w-6'
-                  fill='none'
                   viewBox='0 0 24 24'
-                  stroke='currentColor'>
+                  stroke='#f06e1d'
+                  fill='none'>
                   <path
                     strokeLinecap='round'
                     strokeLinejoin='round'
@@ -91,22 +125,31 @@ const WeeklyPlanner = () => {
               <p className='text-sm'>
                 Recipe will be removed from your weekly planner.
               </p>
-              <div className='flex flex-column mt-5'>
-                <button onClick={onClose}>Cancel</button>
+            </Modal.Body>
+            <Modal.Footer className='modal-footer'>
+              <div className='button-container'>
                 <button
-                  className='bg-red-500 text-white py-1 px-3 rounded-sm'
+                  className='py-1 px-3 rounded-sm secondary-button'
+                  onClick={onClose}>
+                  Cancel
+                </button>
+                <button
+                  className='text-white py-1 px-3 rounded-sm primary-button'
                   onClick={() => {
                     handleClickDelete(userUID, id);
                     onClose();
                   }}>
-                  Yes, Remove it!
+                  Remove
                 </button>
               </div>
-            </div>
-          </div>
+
+              {/* <form onSubmit={handleCheckout}></form> */}
+            </Modal.Footer>
+          </Modal>
         );
       },
     });
+    navigate('/weekly-planner');
   };
 
   const addToWeeklyPlanner = async (date, recipeName, recipe) => {
@@ -121,9 +164,9 @@ const WeeklyPlanner = () => {
 
     try {
       await setDoc(recipeRef, add, { merge: true });
-      alert('Recipe has been added to your planner.');
+      createNotification('success', 'Recipe has been added to your planner.');
     } catch (e) {
-      alert('Oops, something went wrong. Try again!');
+      createNotification('error', 'Oops, something went wrong. Try again!');
       console.log(e);
     }
   };
@@ -140,38 +183,48 @@ const WeeklyPlanner = () => {
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
-          <div className='font-koho mx-8 flex flex-col bg-gray-50 text-gray-900 px-6 py-4 rounded-sm'>
-            <h1 className='flex flex-row space-x-2'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                className='text-red-400 h-6 w-6'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'>
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth='2'
-                  d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z'
-                />
-              </svg>
-              <span>Are you sure?</span>
-            </h1>
-            <p className='text-sm'>
-              Recipe will be moved to the selected date.
-            </p>
-            <div className='flex flex-row justify-between mt-5'>
-              <button onClick={onClose}>Cancel</button>
-              <button
-                className='bg-red-500 text-white py-1 px-3 rounded-sm'
-                onClick={() => {
-                  handleClickMove(id, recipeName, date, recipe);
-                  onClose();
-                }}>
-                Yes, Move it!
-              </button>
-            </div>
-          </div>
+          <Modal show={show} onHide={onClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Change Meal Date </Modal.Title>
+            </Modal.Header>
+            <Modal.Body className='confirm-alert'>
+              <h1 className='flex flex-row space-x-2'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  className='text-red-400 h-6 w-6'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='#f06e1d'>
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
+                    d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z'
+                  />
+                </svg>
+                <span>Are you sure?</span>
+              </h1>
+              <p className='text-sm'>
+                Recipe will be moved to the selected date.
+              </p>
+            </Modal.Body>
+            <Modal.Footer className='modal-footer'>
+              <div className='button-container'>
+                <button className='secondary-button' onClick={onClose}>
+                  Cancel
+                </button>
+                <button
+                  className='bg-red-500 text-white py-1 px-3 rounded-sm primary-button'
+                  onClick={() => {
+                    handleClickMove(id, recipeName, date, recipe);
+                    onClose();
+                  }}>
+                  Yes, Move it!
+                </button>
+              </div>
+              {/* <form onSubmit={handleCheckout}></form> */}
+            </Modal.Footer>
+          </Modal>
         );
       },
     });
@@ -182,22 +235,28 @@ const WeeklyPlanner = () => {
   return (
     <div>
       {!loading && planner.length === 0 && (
-        <div
-          className={
-            'mb-25 p-4 flex flex-col justify-center items-center space-y-5 text-sm ' +
-            (window.innerHeight < 700 ? 'py-auto' : 'py-28')
-          }>
-          {/* <img src={empty} alt='empty calendar'></img> */}
-          <p>Your weekly planner is empty.</p>
+        <div className={'weekly-planner-no-recipes'}>
+          <h1>Your weekly planner is empty.</h1>
+          <p>Add some recipes to the planner from the main page</p>
+          <Link to='/'>
+            <BsCalendar2Plus className='weekly-planner-no-recipes-icon' />
+          </Link>
         </div>
       )}
       {!loading && planner.length > 0 && (
         <div className='mb-25 p-4 pb-28'>
+          {/* <div className='title mb-3'>
+            <h2 className='text-lg'>Your next meal are:</h2>
+          </div> */}
           <div className='flex flex-col space-y-6'>
             <div className=''>
               {planner.map((item) => (
                 <div key={item.id} style={{ margin: '10px' }}>
-                  <h2 className='text-lg'>{weekDayFormatting(item.date)}</h2>
+                  <div className='title text-left'>
+                    <h2 className='text-lg capitalise'>
+                      {weekDayFormatting(item.date)}
+                    </h2>
+                  </div>
                   <RecipeCardFluid
                     key={`${item.date}-${item.recipe.name}`}
                     date={item.date}
@@ -206,6 +265,7 @@ const WeeklyPlanner = () => {
                     formatedDate={weekDayFormatting(item.date)}
                     onMove={confirmMove}
                     onDelete={confirmDelete}
+                    handleShow={handleShow}
                   />
                 </div>
               ))}

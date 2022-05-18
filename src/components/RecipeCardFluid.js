@@ -17,8 +17,13 @@ RecipeCardFluid.propTypes = {
 
 function RecipeCardFluid(props) {
   const { recipe, onDelete, onMove, id } = props;
+  const normalizedString = recipe.name
+    .toLowerCase()
+    .trim()
+    .split(/\s+/)
+    .join('-');
+  console.log(normalizedString);
   // const userUID = localStorage.getItem('userUID');
-  const [showMenu, setShowMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [selectedDate, setSelectedDate] = useState();
 
@@ -56,7 +61,6 @@ function RecipeCardFluid(props) {
 
   const openCalendarModal = () => {
     setShowModal(!showModal);
-    setShowMenu(!showMenu);
   };
 
   const handleSelectedDate = (date) => {
@@ -83,11 +87,16 @@ function RecipeCardFluid(props) {
           id='2'>
           <AiOutlineCloseCircle />
         </div>
-        <div onClick={openCalendarModal} className='move-day-button' id='1'>
+        <div
+          onClick={() => {
+            openCalendarModal();
+          }}
+          className='move-day-button'
+          id='1'>
           <BsCalendarCheck />
         </div>
       </div>
-      <Link to={`/recipe/${recipe.name}`} className='w-100'>
+      <Link to={`/recipe/${normalizedString}`} className='w-100'>
         <div className='gradient-background'>
           <div className='w-100'>
             <svg
@@ -106,7 +115,7 @@ function RecipeCardFluid(props) {
             </svg>
             <span>{recipe.time}</span>
           </div>
-          <div className=' pb-1 z-10'>{recipe.name}</div>
+          <div className='pb-1 z-10'>{recipe.name}</div>
         </div>
       </Link>
       {/* {showMenu && ( */}
@@ -115,6 +124,7 @@ function RecipeCardFluid(props) {
           onClose={openCalendarModal}
           show={showModal}
           onSelectedDate={handleSelectedDate}
+          showModal={showModal}
         />
       )}
     </div>

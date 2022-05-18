@@ -8,6 +8,29 @@ import CalendarModal from '../components/CalendarModal';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { BsCalendarCheck } from 'react-icons/bs';
+import { NotificationManager } from 'react-notifications';
+
+// NOTIFICATION
+const createNotification = (type, message) => {
+  return () => {
+    switch (type) {
+      case 'info':
+        NotificationManager.info(message);
+        break;
+      case 'success':
+        NotificationManager.success(message, 'Success', 1000);
+        break;
+      case 'warning':
+        NotificationManager.warning(message, 'Warning', 3000);
+        break;
+      case 'error':
+        NotificationManager.error(message, 'Error', 5000);
+        break;
+      default:
+        break;
+    }
+  };
+};
 
 const Recipe = () => {
   let params = useParams();
@@ -56,10 +79,12 @@ const Recipe = () => {
 
     try {
       await createShoppingList(currentUser.uid, recipe.name, addTL).then(
-        alert('Added to shopping list ')
+        // alert('Added to shopping list');
+        createNotification('success', 'Added to shopping list')
       );
     } catch (e) {
-      alert('Error when adding to shopping list');
+      // alert('Error when adding to shopping list');
+      createNotification('error', 'Error when added to shopping list');
       console.log(e);
     }
   };
@@ -79,9 +104,12 @@ const Recipe = () => {
 
     try {
       await setDoc(recipeRef, add, { merge: true });
-      _.debounce(alert('Added to weekly calendar '), 500);
+      _.debounce(
+        createNotification('success', 'Added to weekly calendar '),
+        500
+      );
     } catch (e) {
-      alert('Error when added to weekly calendar');
+      createNotification('error', 'Error when added to weekly calendar');
       console.log(e);
     }
   };
@@ -186,6 +214,7 @@ const Recipe = () => {
           onClose={openCalendarModal}
           show={showModal}
           onSelectedDate={handleSelectedDate}
+          showModal={showModal}
         />
       )}
     </div>
