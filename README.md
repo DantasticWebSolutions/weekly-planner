@@ -1,5 +1,5 @@
 # ![logo](src/assets/logo.png) 
-### Meal Planner™
+# Meal Planner™
 Powered by (Dan Gherasimciuc - 10104066) \
 Hosted Website: https://dantasticweeklyplanner.netlify.app \
 Github Source Code: https://github.com/DantasticWebSolutions/weekly-planner 
@@ -49,6 +49,17 @@ This is the conclusion...
 #
 
 ### Run the project:
+Add .env.local file and paste the following
+
+
+```
+REACT_APP_FIREBASE_API_KEY=AIzaSyAZ7x1rdNgIxB8JBJVKGsHLS3Fc9OpxnWk
+REACT_APP_FIREBASE_AUTH_DOMAIN=auth-development-3e7c1.firebaseapp.com
+REACT_APP_FIREBASE_PROJECT_ID=auth-development-3e7c1
+REACT_APP_FIREBASE_STORAGE_BUCKET=auth-development-3e7c1.appspot.com
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=1057533711368
+REACT_APP_FIREBASE_APP_ID=1:1057533711368:web:7ff31bf167392e9133edbd 
+```
 
 ```npm i``` to install the dependencies
 
