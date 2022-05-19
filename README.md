@@ -1,10 +1,9 @@
 # ![logo](src/assets/logo.png) 
-# Meal Planner™
+# Dantastic Meal Planner™
 Powered by (Dan Gherasimciuc - 10104066) \
 Hosted Website: https://dantasticweeklyplanner.netlify.app \
 Github Source Code: https://github.com/DantasticWebSolutions/weekly-planner 
 
-#
 
 # Introduction
 
@@ -49,7 +48,7 @@ This is the conclusion...
 #
 
 ### Run the project:
-For the purpose of this assignment I am sharing the keys to access the firebase database in order to let the lecturer run the project even if that causes an unacceptable security breach. \
+For the purpose of this assignment I am sharing the keys to access the firebase database in order to let the lecturer run the project even if that causes an unacceptable security breach.
 
 Create a .env.local file in the root and paste the following
 ```
