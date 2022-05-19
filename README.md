@@ -49,8 +49,7 @@ This is the conclusion...
 #
 
 ### Run the project:
-Add .env.local file and paste the following
-
+Create a .env.local file in the root and paste the following
 
 ```
 REACT_APP_FIREBASE_API_KEY=AIzaSyAZ7x1rdNgIxB8JBJVKGsHLS3Fc9OpxnWk
