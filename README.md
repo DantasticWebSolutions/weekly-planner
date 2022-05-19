@@ -1,68 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ![logo](src/assets/logo.png) Meal Planner™
+Powered by Dantastic Web Solutions (Dan Gherasimciuc - 10104066)
+Hosted Website: https://dantasticweeklyplanner.netlify.app
+Github Source Code: https://github.com/DantasticWebSolutions/weekly-planner
 
-## Available Scripts
+### Introduction
 
-In the project directory, you can run:
+Students nowadays have to juggle several activities and it is not easy to perform at the best in all of them, especially for the unexperienced younger ones. For this reason students must organise themselves in the most optimal way possible to avoid losing time and perform excellently at the same time. Usually this implies they will have to dedicate more time to the essential tasks and less to others, sometimes leading to completely ignore the less significant ones. For some students a task that is usually considered secondary is taking care of their health through the food they eat. Most students have poor diets, usually fast-food products which means they spend more on food and which can also cause health problems. 
 
-### `npm start`
+This aim of this web app is to solve the problems identified in the first three stages of the design thinking process. The ideation of this prototype came when trying to provide a possible hypothesises on how to solve students' lack of organisation and providing them with a platform where they can plan their meals during the week, get nutritional informations about the food and create an organised and methodical shopping list.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This phase is an experimental phase where I had to produce the platform that could produce a possible solution to the obstacles finded. The goal of this phase is to understand the user's behaviour and interaction with the end products.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The final phase is to test the outcome of the decision taken in the previous stages. This will aim to gather more data about the users' behaviour adn needs and therefore redefine the stages and tackle the new problems in the same systematic way that have been approached the first time. 
 
-### `npm test`
+#
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Technologies: 
+- React [react](https://www.npmjs.com/package/react)
+- Firebase [firebase](https://www.npmjs.com/package/firebase)
+- Bootstrap [bootstrap](https://www.npmjs.com/package/bootstrap)
+- React Bootstrap [react-bootstrap](https://www.npmjs.com/package/react-bootstrap)  
+- React Router Dom [react-router-dom](https://reactrouter.com/)
+- React Notifications [react-notifications](https://www.npmjs.com/package/react-notifications)
+- React Calendar [react-calendar](https://www.npmjs.com/package/react-calendar)
+- React Icons [react-icons](https://www.npmjs.com/package/react-icons)
+- React Confirm Alert [react-confirm-alert](https://www.npmjs.com/package/react-confirm-alert)
+- Luxon [luxon](https://moment.github.io/luxon/)
+- Underscore [underscore](http://underscorejs.org/)
 
-### `npm run build`
+#
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Run the project:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```npm i``` to install the dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```npm start``` to start the server
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+# 
+[Figma design Project](https://www.figma.com/file/kIQUiAkFknaj58zUyVi8rj/Meals-and-Shopping-List-weekly-planner?node-id=0%3A1)
