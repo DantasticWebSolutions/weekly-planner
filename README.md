@@ -49,8 +49,9 @@ This is the conclusion...
 #
 
 ### Run the project:
-Create a .env.local file in the root and paste the following
+For the purpose of this assignment I am sharing the keys to access the firebase database in order to let the lecturer run the project even if that causes an unacceptable security breach. \
 
+Create a .env.local file in the root and paste the following
 ```
 REACT_APP_FIREBASE_API_KEY=AIzaSyAZ7x1rdNgIxB8JBJVKGsHLS3Fc9OpxnWk
 REACT_APP_FIREBASE_AUTH_DOMAIN=auth-development-3e7c1.firebaseapp.com
