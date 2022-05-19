@@ -1,7 +1,8 @@
-# ![logo](src/assets/logo.png) Meal Planner™
-Powered by Dantastic Web Solutions (Dan Gherasimciuc - 10104066)
-Hosted Website: https://dantasticweeklyplanner.netlify.app
-Github Source Code: https://github.com/DantasticWebSolutions/weekly-planner
+# ![logo](src/assets/logo.png) \
+Meal Planner™ \
+Powered by Dantastic Web Solutions (Dan Gherasimciuc - 10104066) \
+Hosted Website: https://dantasticweeklyplanner.netlify.app \
+Github Source Code: https://github.com/DantasticWebSolutions/ weekly-planner \
 
 ### Introduction
 
