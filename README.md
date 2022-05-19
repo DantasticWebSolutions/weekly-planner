@@ -16,17 +16,17 @@ The final phase is to test the outcome of the decision taken in the previous sta
 #
 
 ### Technologies: 
-- React [react](https://www.npmjs.com/package/react)
-- Firebase [firebase](https://www.npmjs.com/package/firebase)
-- Bootstrap [bootstrap](https://www.npmjs.com/package/bootstrap)
-- React Bootstrap [react-bootstrap](https://www.npmjs.com/package/react-bootstrap)  
-- React Router Dom [react-router-dom](https://reactrouter.com/)
-- React Notifications [react-notifications](https://www.npmjs.com/package/react-notifications)
-- React Calendar [react-calendar](https://www.npmjs.com/package/react-calendar)
-- React Icons [react-icons](https://www.npmjs.com/package/react-icons)
-- React Confirm Alert [react-confirm-alert](https://www.npmjs.com/package/react-confirm-alert)
-- Luxon [luxon](https://moment.github.io/luxon/)
-- Underscore [underscore](http://underscorejs.org/)
+- [React](https://www.npmjs.com/package/react)
+- [Firebase](https://www.npmjs.com/package/firebase)
+- [Bootstrap](https://www.npmjs.com/package/bootstrap)
+- [React Bootstrap](https://www.npmjs.com/package/react-bootstrap)  
+- [React Router Dom](https://reactrouter.com/)
+- [React Notifications](https://www.npmjs.com/package/react-notifications)
+- [React Calendar](https://www.npmjs.com/package/react-calendar)
+- [React Icons](https://www.npmjs.com/package/react-icons)
+- [React Confirm Alert](https://www.npmjs.com/package/react-confirm-alert)
+- [Luxon](https://moment.github.io/luxon/)
+- [Underscore](http://underscorejs.org/)
 
 #
 
