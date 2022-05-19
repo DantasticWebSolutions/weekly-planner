@@ -15,6 +15,7 @@ import ShoppingList from '../views/ShoppingList';
 import WeeklyPlanner from '../views/WeeklyPlanner';
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer } from 'react-notifications';
+import NotFoundPage from './NotFoundPage';
 
 function App() {
   return (
@@ -53,6 +54,8 @@ function App() {
               path={`/weekly-planner`}
               element={<PrivateRoute Component={WeeklyPlanner} />}
             />
+            {/* 404 */}
+            <Route path='*' element={<NotFoundPage />} />
           </Routes>
         </AuthProvider>
       </Router>
