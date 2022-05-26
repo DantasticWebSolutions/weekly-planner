@@ -24,6 +24,7 @@ function App() {
       <Router>
         <AuthProvider>
           <Routes>
+            {/* Home */}
             <Route path='/' element={<PrivateRoute Component={Home} />} />
             {/* Authentication */}
             <Route

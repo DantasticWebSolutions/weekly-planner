@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import PageNotFound from '../assets/images/PageNotFound';
+
 const NotFoundPage = () => {
   return (
     <div>
@@ -18,7 +18,6 @@ const NotFoundPage = () => {
           <Link to='/'>Go to Home Page </Link>
         </div>
       </div>
-      {/* </p> */}
     </div>
   );
 };
