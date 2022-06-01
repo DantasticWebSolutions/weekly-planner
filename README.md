@@ -16,7 +16,7 @@
   <p align="center">
     An awesome meal planner to help you live a healtier and more organised life.
     <br />
-    <a href="https://dantasticweeklyplanner.netlify.app/">View Demo</a>
+    <a href="https://dantasticweeklyplanner.netlify.app/" target="_blank">View Demo</a>
     ·
     <a href="mailto:gherasimciuc@icloud.com">Contact Me</a>
   </p>
@@ -107,14 +107,14 @@ _For the purpose of this assignment I am sharing the keys to access the firebase
    git clone https://github.com/DantasticWebSolutions/weekly-planner.git
    ```
 2. Create a .env.local file in the root and paste the following
-```
-REACT_APP_FIREBASE_API_KEY=AIzaSyAZ7x1rdNgIxB8JBJVKGsHLS3Fc9OpxnWk
-REACT_APP_FIREBASE_AUTH_DOMAIN=auth-development-3e7c1.firebaseapp.com
-REACT_APP_FIREBASE_PROJECT_ID=auth-development-3e7c1
-REACT_APP_FIREBASE_STORAGE_BUCKET=auth-development-3e7c1.appspot.com
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID=1057533711368
-REACT_APP_FIREBASE_APP_ID=1:1057533711368:web:7ff31bf167392e9133edbd 
-```
+    ```sh
+    REACT_APP_FIREBASE_API_KEY=AIzaSyAZ7x1rdNgIxB8JBJVKGsHLS3Fc9OpxnWk
+    REACT_APP_FIREBASE_AUTH_DOMAIN=auth-development-3e7c1.firebaseapp.com
+    REACT_APP_FIREBASE_PROJECT_ID=auth-development-3e7c1
+    REACT_APP_FIREBASE_STORAGE_BUCKET=auth-development-3e7c1.appspot.com
+    REACT_APP_FIREBASE_MESSAGING_SENDER_ID=1057533711368
+    REACT_APP_FIREBASE_APP_ID=1:1057533711368:web:7ff31bf167392e9133edbd 
+    ```
 3. Install NPM packages
    ```sh
    npm install
@@ -172,9 +172,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Dan Gherasimciuc \ 
+Dan Gherasimciuc
 [@dangherasimciuc](https://www.linkedin.com/in/dangherasimciuc/) \
-[gherasimciuc@icloud.com](mailto:gherasimciuc@icloud.com) \
+[gherasimciuc@icloud.com](mailto:gherasimciuc@icloud.com)
 
 
 
@@ -189,9 +189,7 @@ Project Link: [https://github.com/DantasticWebSolutions/weekly-planner](https://
 
 List of resources I find helpful and would like to give credit to:
 
-* [Netlify](https://www.netlify.com/)
-* [React Icons](https://react-icons.github.io/react-icons/search)
-* [Choose an Open Source License](https://choosealicense.com)
+
 * [React Bootstrap](https://www.npmjs.com/package/react-bootstrap)  
 * [React Router Dom](https://reactrouter.com/)
 * [React Notifications](https://www.npmjs.com/package/react-notifications)
@@ -199,6 +197,9 @@ List of resources I find helpful and would like to give credit to:
 * [React Icons](https://www.npmjs.com/package/react-icons)
 * [React Confirm Alert](https://www.npmjs.com/package/react-confirm-alert)
 * [Luxon](https://moment.github.io/luxon/)
+* [Netlify](https://www.netlify.com/)
+* [React Icons](https://react-icons.github.io/react-icons/search)
+* [Choose an Open Source License](https://choosealicense.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
