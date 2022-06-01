@@ -147,7 +147,7 @@ _Please refer to the [Documentation](https://github.com/DantasticWebSolutions/we
 - [x] Add Recipe to Weekly Planner 
 - [ ] Macronutrients Counter
 - [ ] Display Recipes based on the remaining macronutrients needed to complete goals
-- [ ] Allow Users to create their own Recipes (visible only to them)
+- [ ] Allow Users to create their own Recipes (visible only to the user who created it)
 - [ ] Multi-language Support
     - [x] English
     - [ ] Italian
@@ -174,7 +174,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Dan Gherasimciuc
 [@dangherasimciuc](https://www.linkedin.com/in/dangherasimciuc/) \
-[gherasimciuc@icloud.com](mailto:gherasimciuc@icloud.com)
+Send me an email at: [gherasimciuc@icloud.com](mailto:gherasimciuc@icloud.com)
 
 
 
