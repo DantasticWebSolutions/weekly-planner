@@ -188,7 +188,7 @@ const ShoppingList = () => {
                         type='checkbox'
                         className=''
                       />
-                      <span class='checkmark'></span>
+                      <span className='checkmark'></span>
                     </label>
                     <div className='ml-3 text-sm'>
                       <label

@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import 'react-calendar/dist/Calendar.css';
 import { Modal } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 function CalendarModal(props) {
+  const navigate = useNavigate();
   let { value, onClose, onSelectedDate, showModal } = props;
   const [calendarValue, setCalendarValue] = useState(new Date());
   const [formattedCalendarValue, setFormattedCalendarValue] = useState();
@@ -65,6 +67,7 @@ function CalendarModal(props) {
             className='rounded-sm primary-button'
             onClick={() => {
               handleSave();
+              navigate('/weekly-planner');
             }}>
             Save
           </button>

@@ -3,11 +3,12 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useAuth } from '../contexts/AuthContext';
-import _ from 'underscore';
 import CalendarModal from '../components/CalendarModal';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { BsCalendarCheck } from 'react-icons/bs';
+import { SiSpeedtest } from 'react-icons/si';
+import { MdOutlineTimer } from 'react-icons/md';
 import { NotificationManager } from 'react-notifications';
 
 // NOTIFICATION
@@ -18,7 +19,7 @@ const createNotification = (type, message) => {
         NotificationManager.info(message);
         break;
       case 'success':
-        NotificationManager.success(message, 'Success', 1000);
+        NotificationManager.success(message, 'Success', 3000);
         break;
       case 'warning':
         NotificationManager.warning(message, 'Warning', 3000);
@@ -44,7 +45,6 @@ const Recipe = () => {
   const navigate = useNavigate();
 
   //   GET RECIPE BASED ON PARAMS
-
   const getSingleRecipe = async () => {
     const docRef = doc(db, 'recipes', params.recipeId);
     const docSnap = await getDoc(docRef);
@@ -79,11 +79,9 @@ const Recipe = () => {
 
     try {
       await createShoppingList(currentUser.uid, recipe.name, addTL).then(
-        // alert('Added to shopping list');
         createNotification('success', 'Added to shopping list')
       );
     } catch (e) {
-      // alert('Error when adding to shopping list');
       createNotification('error', 'Error when added to shopping list');
       console.log(e);
     }
@@ -103,11 +101,10 @@ const Recipe = () => {
     );
 
     try {
-      await setDoc(recipeRef, add, { merge: true });
-      _.debounce(
-        createNotification('success', 'Added to weekly calendar '),
-        500
+      await setDoc(recipeRef, add, { merge: true }).then(
+        createNotification('success', 'Added to weekly calendar ')
       );
+      // _.debounce(500);
     } catch (e) {
       createNotification('error', 'Error when added to weekly calendar');
       console.log(e);
@@ -125,9 +122,9 @@ const Recipe = () => {
   };
 
   return (
-    <div>
+    <>
       {!loading && (
-        <div>
+        <div className='recipe-info-container'>
           <button
             className='go-back'
             onClick={() => {
@@ -141,7 +138,30 @@ const Recipe = () => {
           <div className='recipe-info'>
             <div className='recipe-info-title'>
               {/* <h6>{recipe.difficulty_level}</h6> */}
-              <h5>{recipe.time}</h5>
+              <div>
+                {' '}
+                <MdOutlineTimer
+                  style={{
+                    marginRight: '5px',
+                    marginTop: '-4px',
+                    color: '#f06e1d',
+                    fontSize: '15px',
+                  }}
+                />
+                <span>{recipe.time} min</span>
+                <span>
+                  &nbsp;&nbsp;
+                  <SiSpeedtest
+                    style={{
+                      marginRight: '5px',
+                      marginTop: '-4px',
+                      color: '#f06e1d',
+                      fontSize: '13px',
+                    }}
+                  />
+                  {recipe.difficulty_level}
+                </span>
+              </div>
               <div className='recipe-info-titile-buttons-container'>
                 <div className='recipe-info-titile-button'>
                   <button
@@ -150,7 +170,6 @@ const Recipe = () => {
                     id='0'>
                     <AiOutlineShoppingCart />
                   </button>
-                  {/* <span>Shopping List</span> */}
                 </div>
 
                 <h1>{recipe.name}</h1>
@@ -158,7 +177,6 @@ const Recipe = () => {
                   <button onClick={openCalendarModal} className='' id='1'>
                     <BsCalendarCheck />
                   </button>
-                  {/* <span>Calendar</span> */}
                 </div>
               </div>
             </div>
@@ -181,7 +199,10 @@ const Recipe = () => {
               </div>
             </div>
             <div className='ingredients-container'>
-              <h2>Ingredients</h2>
+              <div className='ingredients-title-container'>
+                <h2>Ingredients</h2>
+                <span>{recipe.amount}</span>
+              </div>
               <div>
                 {recipe.ingredients.map((ingredient) => (
                   <p className='ingredients-list' key={ingredient}>
@@ -199,6 +220,7 @@ const Recipe = () => {
 
             <Link
               className='primary-button'
+              style={{ maxWidth: '550px' }}
               to={{
                 pathname: `step/${stepId}`,
                 recipe: recipe,
@@ -217,7 +239,7 @@ const Recipe = () => {
           showModal={showModal}
         />
       )}
-    </div>
+    </>
   );
 };
 

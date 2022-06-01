@@ -71,7 +71,7 @@ const CookRecipe = () => {
   return (
     <div>
       {!loading && (
-        <div>
+        <div className='recipe-info-container'>
           <button
             className='go-back'
             onClick={() => {
@@ -82,46 +82,45 @@ const CookRecipe = () => {
           <div
             className='imgContainer'
             style={{ backgroundImage: `url(${recipe.photo_url})` }}></div>
+
+          <div className='recipe-info'>
+            {/* {!loading && ( */}
+            <div style={{ textAlign: 'center' }}>
+              <h1>{recipe.name}</h1>
+              <div style={{ marginBottom: '10px' }}>
+                {currentStep} / {steps}
+              </div>
+              <div className='progress-bar-container'>
+                <div
+                  className='progress-bar'
+                  style={{ width: `${progress}` }}></div>
+              </div>
+            </div>
+            {/* )} */}
+            <div className='step'>{!loading && step}</div>
+            {/* {!loading && ( */}
+            <div className='button-container'>
+              <button
+                onClick={() => {
+                  navigate(-1);
+                }}
+                className='secondary-button'>
+                Back
+              </button>
+              <Link
+                className='primary-button'
+                onClick={updateState}
+                to={
+                  currentStep < steps
+                    ? `/recipe/${recipeId}/step/${nextStep}`
+                    : `/`
+                }>
+                <span>{currentStep < steps ? 'CONTINUE' : 'FINISH'}</span>
+              </Link>
+            </div>
+          </div>
         </div>
       )}
-
-      <div className='recipe-info'>
-        {!loading && (
-          <div style={{ textAlign: 'center' }}>
-            <h1>{recipe.name}</h1>
-            <div style={{ marginBottom: '10px' }}>
-              {currentStep} / {steps}
-            </div>
-            <div className='progress-bar-container'>
-              <div
-                className='progress-bar'
-                style={{ width: `${progress}` }}></div>
-            </div>
-          </div>
-        )}
-        <div className='step'>{!loading && step}</div>
-        {!loading && (
-          <div className='button-container'>
-            <button
-              onClick={() => {
-                navigate(-1);
-              }}
-              className='secondary-button'>
-              Back
-            </button>
-            <Link
-              className='primary-button'
-              onClick={updateState}
-              to={
-                currentStep < steps
-                  ? `/recipe/${recipeId}/step/${nextStep}`
-                  : `/`
-              }>
-              <span>{currentStep < steps ? 'CONTINUE' : 'FINISH'}</span>
-            </Link>
-          </div>
-        )}
-      </div>
     </div>
   );
 };

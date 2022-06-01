@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { AiOutlineDelete } from 'react-icons/ai';
 import { BsCalendarCheck } from 'react-icons/bs';
-// import {
-//   doc,
-//   getFirestore,
-//   setDoc
-// } from 'firebase/firestore';
 import CalendarModal from '../components/CalendarModal';
-// import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { SiSpeedtest } from 'react-icons/si';
+import { MdOutlineTimer } from 'react-icons/md';
 
 RecipeCardFluid.propTypes = {
   recipe: PropTypes.object,
@@ -35,29 +31,6 @@ function RecipeCardFluid(props) {
   const moveRecipe = (date) => {
     onMove(id, recipe.name, date, recipe);
   };
-
-  // const displayMenu = (e) => {
-  //   setShowMenu(!showMenu);
-  // };
-
-  // const addToWeeklyPlanner = async (date, recipeName) => {
-  //   const add = {
-  //     ...{ date: date, recipe },
-  //   };
-  //   const recipeRef = doc(
-  //     db,
-  //     `weekly-planner-${userUID}`,
-  //     `${date}-${recipeName}`
-  //   );
-
-  //   try {
-  //     await setDoc(recipeRef, add, { merge: true });
-  //     alert('Recipe has been moved');
-  //   } catch (e) {
-  //     alert('Oops, something went wrong. Try again!');
-  //     console.log(e);
-  //   }
-  // };
 
   const openCalendarModal = () => {
     setShowModal(!showModal);
@@ -85,7 +58,7 @@ function RecipeCardFluid(props) {
           }}
           className='delete-button'
           id='2'>
-          <AiOutlineCloseCircle />
+          <AiOutlineDelete />
         </div>
         <div
           onClick={() => {
@@ -98,14 +71,41 @@ function RecipeCardFluid(props) {
       </div>
       <Link to={`/recipe/${normalizedString}`} className='w-100'>
         <div className='gradient-background'>
-          <div className='w-100'>
+          <div>
+            {' '}
+            <MdOutlineTimer
+              style={{
+                marginRight: '5px',
+                marginTop: '-4px',
+                color: '#f06e1d',
+                fontSize: '15px',
+              }}
+            />
+            <span>{recipe.time} min</span>
+            <span>
+              &nbsp;&nbsp;
+              <SiSpeedtest
+                style={{
+                  marginRight: '5px',
+                  marginTop: '-4px',
+                  color: '#f06e1d',
+                  fontSize: '13px',
+                }}
+              />
+              {recipe.difficulty_level}
+            </span>
+          </div>
+          {/* <div className='w-100'>
             <svg
               width='12'
               height='12'
               viewBox='0 0 12 12'
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
-              style={{ marginRight: '5px' }}>
+              style={{
+                marginRight: '5px',
+                marginTop: '-3px',
+              }}>
               <path
                 fillRule='evenodd'
                 clipRule='evenodd'
@@ -113,8 +113,8 @@ function RecipeCardFluid(props) {
                 fill='white'
               />
             </svg>
-            <span>{recipe.time}</span>
-          </div>
+            <span>{recipe.time} min</span>
+          </div> */}
           <div className='pb-1 z-10'>{recipe.name}</div>
         </div>
       </Link>

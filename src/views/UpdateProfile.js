@@ -61,7 +61,7 @@ export default function UpdateProfile() {
   return (
     <>
       <div className='update-profile-container'>
-        <div>
+        <div className='update-profile'>
           <div className='user-photo-container'>
             {currentUser.photoURL ? (
               <img

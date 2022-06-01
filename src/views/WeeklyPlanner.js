@@ -23,7 +23,7 @@ const createNotification = (type, message) => {
         NotificationManager.info(message);
         break;
       case 'success':
-        NotificationManager.success(message, 'Success', 1000);
+        NotificationManager.success(message, 'Success', 3000);
         break;
       case 'warning':
         NotificationManager.warning(message, 'Warning', 3000);
@@ -149,7 +149,6 @@ const WeeklyPlanner = () => {
         );
       },
     });
-    navigate('/weekly-planner');
   };
 
   const addToWeeklyPlanner = async (date, recipeName, recipe) => {
@@ -165,6 +164,7 @@ const WeeklyPlanner = () => {
     try {
       await setDoc(recipeRef, add, { merge: true });
       createNotification('success', 'Recipe has been added to your planner.');
+      navigate('/weekly-planner');
     } catch (e) {
       createNotification('error', 'Oops, something went wrong. Try again!');
       console.log(e);
@@ -222,7 +222,6 @@ const WeeklyPlanner = () => {
                   Yes, Move it!
                 </button>
               </div>
-              {/* <form onSubmit={handleCheckout}></form> */}
             </Modal.Footer>
           </Modal>
         );
@@ -244,12 +243,12 @@ const WeeklyPlanner = () => {
         </div>
       )}
       {!loading && planner.length > 0 && (
-        <div className='mb-25 p-4 pb-28'>
-          {/* <div className='title mb-3'>
+        <div className=' mb-25 p-4 pb-28'>
+          <div className='title mb-3'>
             <h2 className='text-lg'>Your next meal are:</h2>
-          </div> */}
-          <div className='flex flex-col space-y-6'>
-            <div className=''>
+          </div>
+          <div className='flex flex-col space-y-6 weekly-planner-container'>
+            <div className='weekly-planner'>
               {planner.map((item) => (
                 <div key={item.id} style={{ margin: '10px' }}>
                   <div className='title text-left'>
