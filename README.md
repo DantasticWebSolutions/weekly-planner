@@ -67,7 +67,7 @@ Here is why:
 * You will never run out of ingredients anymore
 * You will always have a variegated choice of healthy recipes
 
-If it’s true that food can make us unhealthy, it can also take us to be healthy again :smile:
+If it’s true that food can make us unhealthy, it can also take us to be healthy again :mending_heart:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
