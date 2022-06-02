@@ -4,7 +4,7 @@ import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useAuth } from '../contexts/AuthContext';
 import CalendarModal from '../components/CalendarModal';
-import { IoIosArrowBack } from 'react-icons/io';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { BsCalendarCheck } from 'react-icons/bs';
 import { SiSpeedtest } from 'react-icons/si';
@@ -33,7 +33,7 @@ const createNotification = (type, message) => {
   };
 };
 
-const CookRecipe = () => {
+const RecipeHeader = () => {
   let params = useParams();
   const recipeId = params.recipeId;
   const [loading, setLoading] = useState(true);
@@ -125,7 +125,7 @@ const CookRecipe = () => {
   }, []);
 
   console.log(recipe);
-  console.log(stepId);
+
   //   ADD TO SHOPPING LIST
 
   const { currentUser } = useAuth();
@@ -258,36 +258,6 @@ const CookRecipe = () => {
                 <span>Fat</span>
               </div>
             </div>
-            <div style={{ textAlign: 'center' }}>
-              {/* <div style={{ marginBottom: '10px' }}>
-                {currentStep} / {steps}
-              </div> */}
-              <div className='progress-bar-container'>
-                <div
-                  className='progress-bar'
-                  style={{ width: `${progress}` }}></div>
-              </div>
-            </div>
-            <div className='step'>{!loading && step}</div>
-            <div className='button-container'>
-              <button
-                onClick={() => {
-                  navigate(-1);
-                }}
-                className='secondary-button'>
-                Back
-              </button>
-              <Link
-                className='primary-button'
-                onClick={updateState}
-                to={
-                  currentStep < steps
-                    ? `/recipe/${recipeId}/step/${nextStep}`
-                    : `/`
-                }>
-                <span>{currentStep < steps ? 'CONTINUE' : 'FINISH'}</span>
-              </Link>
-            </div>
           </div>
         </div>
       )}
@@ -303,4 +273,4 @@ const CookRecipe = () => {
   );
 };
 
-export default CookRecipe;
+export default RecipeHeader;

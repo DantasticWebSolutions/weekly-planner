@@ -126,6 +126,11 @@ _For the purpose of this assignment I am sharing the keys to access the firebase
    ```sh
    npm start
    ```
+5. Log in with Google, Facebook or the following credentials
+   ```sh
+   test@gmail.com
+   testtest
+   ```
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
