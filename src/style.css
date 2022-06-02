@@ -579,8 +579,6 @@ button{
 
 /* NAVBAR */
 .navbar{
-    /* background-image: linear-gradient(transparent, rgb(255, 255, 255)); */
-    /* padding-top: 20px; */
     background-color: #fdf5eb;
     border-radius: 20px;
     margin: 0 25px 15px 25px ;
