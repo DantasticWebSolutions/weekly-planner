@@ -145,7 +145,7 @@ As soon as you finish buying the ingredients you need, you can tap the specific 
 
 # ![usage2](src/assets/usage2.png) 
 
-_Please refer to the [Documentation](https://github.com/DantasticWebSolutions/weekly-planner/blob/main/documentation.md) for a completen description of the purpose of this project_
+_Please refer to the [Documentation](https://github.com/DantasticWebSolutions/weekly-planner/blob/main/documentation.md) for a complete description of the purpose of this project_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
