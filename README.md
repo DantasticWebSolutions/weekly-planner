@@ -135,8 +135,6 @@ _For the purpose of this assignment I am sharing the keys to access the firebase
 
 You can add this app to the home screen by simply creating a bookmark from your preferred browser. In the future, you will be able to download from the main application stores.
 
-<!-- # ![login](src/assets/login.png)  -->
-
 After logging in, you can tap on any recipe to get more details and start planning. Tap one of the two buttons on the sides of the title to either add to the shopping list or add to the calendar. You can also see all the steps required for the recipes once you press “Start Cooking” on the chosen recipe.
 
 # ![usage](src/assets/usage.png) 
@@ -145,7 +143,7 @@ Once you have added recipes to the weekly planner, you don’t need to delete th
 
 As soon as you finish buying the ingredients you need, you can tap the specific ingredient to cross it or delete the whole grocery list by simply clicking the main delete button at the end. Once you finished planning, you can log out or change your password from the Profile section.
 
-# ![usage2](src/assets/usage.png) 
+# ![usage2](src/assets/usage2.png) 
 
 _Please refer to the [Documentation](https://github.com/DantasticWebSolutions/weekly-planner/blob/main/documentation.md) for a completen description of the purpose of this project_
 
