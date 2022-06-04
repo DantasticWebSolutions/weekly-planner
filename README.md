@@ -216,6 +216,6 @@ List of resources I find helpful and would like to give credit to:
 
 <!-- LINKS & IMAGES -->
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/DantasticWebSolutions/weekly-planner/LICENSE.txt
+[license-url]: https://github.com/DantasticWebSolutions/weekly-planner/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/dangherasimciuc/
