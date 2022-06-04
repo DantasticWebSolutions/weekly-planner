@@ -3,7 +3,6 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -21,8 +20,6 @@
     <a href="mailto:gherasimciuc@icloud.com">Contact Me</a>
   </p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -49,8 +46,6 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
@@ -71,8 +66,7 @@ If it’s true that food can make us unhealthy, it can also take us to be health
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
+<!-- BUILT WITH -->
 ### Built With
 
 List of major frameworks/libraries used to bootstrap this project.
@@ -81,11 +75,7 @@ List of major frameworks/libraries used to bootstrap this project.
 - [Firebase](https://www.npmjs.com/package/firebase)
 - [Bootstrap](https://www.npmjs.com/package/bootstrap)
 
-
-
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -163,9 +153,13 @@ _Please refer to the [Documentation](https://github.com/DantasticWebSolutions/we
 - [x] Create and Display Recipes
 - [x] Add Recipe to Shopping List 
 - [x] Add Recipe to Weekly Planner 
+- [ ] Share Shopping List 
+- [ ] Order Recipes by time, difficulty or macronutrients informations
+- [ ] Filter Vegan or Vegetarian options
 - [ ] Macronutrients Counter
 - [ ] Display Recipes based on the remaining macronutrients needed to complete goals
 - [ ] Allow Users to create their own Recipes (visible only to the user who created it)
+- [ ] Displaying Recipes based on ingredients user already have
 - [ ] Multi-language Support
     - [x] English
     - [ ] Italian
@@ -193,10 +187,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Dan Gherasimciuc
 [@dangherasimciuc](https://www.linkedin.com/in/dangherasimciuc/) \
-Send me an email at: [gherasimciuc@icloud.com](mailto:gherasimciuc@icloud.com)
-
-
-
+Send me an email at: [gherasimciuc@icloud.com](mailto:gherasimciuc@icloud.com) \
 Project Link: [https://github.com/DantasticWebSolutions/weekly-planner](https://github.com/DantasticWebSolutions/weekly-planner)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -207,7 +198,6 @@ Project Link: [https://github.com/DantasticWebSolutions/weekly-planner](https://
 ## Acknowledgments
 
 List of resources I find helpful and would like to give credit to:
-
 
 * [React Bootstrap](https://www.npmjs.com/package/react-bootstrap)  
 * [React Router Dom](https://reactrouter.com/)
