@@ -21,22 +21,8 @@ This app has an obvious purpose of helping students during meal preparation or g
 # Methodology
 
 # ![prototype-methodology](src/assets/prototypeMethodology.png) 
-<!-- The Prototype Methodology is the software development process that allows developers to create only the prototype of the solution to demonstrate its functionality to the clients. Make all the necessary modifications before developing the actual application using this methodology. The best feature of this software development methodology is that it solves a plethora of issues that often occur in a traditional waterfall model.
 
-Advantages of Prototype Model
-
-Show the prototype to the client to have a clear understanding and complete ‘feel’ of the functionality developed in the software. It ensures a greater level of customer satisfaction and comfort.
-Identify the scope of the refinement and accordingly accommodate new changes in the given requirements.
-Significantly reduce the risk of failure using this method and identify the potential risks at an early stage and moderation steps can be taken quickly.
-The communication between the software development team and the client makes a very good and conducive environment during a project.
-It helps in requirement gathering and requirement analysis when there is a lack of required documents.
-Disadvantages of Prototype Model
-
-Prototyping is usually done at the cost of the developer, so it should be done using minimal resources otherwise the organization’s development cost stretches too much.
-Customers sometimes demand the actual product to be delivered soon after seeing an early prototype.
-The clients have too much involvement which is not always aligned with the software developer.
-It does not appreciate too many modifications in the project as it easily disturbs the existing workflow of the entire software development process.
-Customers may not be satisfied or interested in the product after seeing the initial prototype. -->
+The method I have chosen is the Prototype Methodology, which is a software development process that aims to let the developer create only the prototype of the solution in order to express the functionalities to the client or user. There are many advantages that occur when using this approach, and hence the reason for using it for this project. This process allows the developer to get a clear understanding of the users’ needs and it allows him to achieve a higher level of customer satisfaction. Furthermore, this process allows to easily identify the required changes and to accordingly make changes in order to fulfil these requirements. Proceeding with this method ensures a significant reduction in the risk of failure and it also allows to identify these risks in early stages in order to avoid extensive complications in later stages. Another advantage that this process generates is the great communication that gets established between the development team and the client, which leads to a higher level of overall satisfaction.
 
 ### Methods
 This prototype proposed has been evaluated by the users using an online questionnaire that required them to use the app with no previous knowledge about how to use it. The purpose was to understand the user behaviour and find any problems in the way they approach and use the web-app. The choice of a questionnaire has been implemented because of its ability to transform data into quantitatively provable results.
@@ -45,14 +31,36 @@ The questionnaire comprised 10 questions meant to understand the users’ intera
 
 # Conclusion/Results
 
-The results from the questionnaire brought a promising outcome. Since most of the students agreed with the potential usefulness of the app, I can argue this app could improve the way young people and especially students, approach diets, grocery and personal macronutrients intake care.
+The results from the questionnaire brought a promising outcome. Since all the students agreed with the potential usefulness of the app, I can argue this app could improve the way young people and especially students, approach diets, grocery and personal macronutrients intake. 
 
-All the users have been proven able to create an account, log in and use recipes without prior explanation or tour through the app. Furthermore, the interviewed individuals have been able to add recipes to the shopping list and calendar in an easy and approachable manner. All the students have used the Navbar to browse through the different pages in the app and access the required page. 
+# ![login](src/assets/login.png) 
+# ![addrecipe](src/assets/addrecipes.png) 
+# ![deleterecipe](src/assets/deleterecipe.png) 
+# ![struggled](src/assets/struggled.png) 
+
+All the users have been proven able to create an account, log in and use recipes without prior explanation or tour through the app. Furthermore, the most of interviewed individuals have been able to add recipes to the shopping list and calendar in an easy and approachable manner. When asking users if they have struggled while using the app, most of the users answered negatively, however one student found a bug which doesn’t allow user to plan recipes for the current day’s date. For this reason I have decided to implement the prototype methodology to repeat the process from the design step forward. This allowed me to plan the approach and resolve the bug. 
+
+# ![favourite](src/assets/favourite.png) 
+
+From the user’s questionnaire I have realised the preferred features are the ability to add recipes to the Shopping List and adding recipes to the Calendar Planner. However, the possibility of logging with third-party providers like Google and Facebook has achieved a significant success. 
+
+# ![newfeature](src/assets/newfeature.png) 
+
+Next when users have been asked to choose between new features they would like to be implemented the preferred one was the ability to choose between recipes that help to achieve the weekly macronutrients goal (like 3000kcal/day). This feature in fact would make users more aware of the actual intake they are getting and how act in order to get healthier and more organised. Next users would like the possibility to filter recipes based on the nature of the ingredients, like recipes with only vegetarian or vegan products. Another main feature students would like is the possibility to download the app from the main application stores available at the moment (App Store, Google Play).
+
+# ![useinthefuture](src/assets/useinthefuture.png) 
+# ![approach](src/assets/approach.png) 
+# ![achievehealtier](src/assets/achievehealtier.png) 
+
+Finally the users have been asked if they would use the app and if in their opinion this could help achieving a healthier and more organised lifestyle. All the answers were very promising. In fact 90% of interviewed students have stated they belive the app can help them achieve a healthier lifestyle.
+
+In conclusion, based on the questionnaire’s results, this app is highly likely to help students solve the problem identified in the first stages of the studies performed in the Design Thinking Process (during the first assignment AE1). 
 
 
 # Appendix
 
 [Figma design Project](https://www.figma.com/file/kIQUiAkFknaj58zUyVi8rj/Meals-and-Shopping-List-weekly-planner?node-id=0%3A1)
+[Google Form Questionnaire](https://forms.gle/tdJDgo5Svb1ad7B66)
 
 
 ### Technologies: 
