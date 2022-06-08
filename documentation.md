@@ -74,7 +74,6 @@ In conclusion, based on the questionnaire’s results, this app is highly likely
 - [React Icons](https://www.npmjs.com/package/react-icons)
 - [React Confirm Alert](https://www.npmjs.com/package/react-confirm-alert)
 - [Luxon](https://moment.github.io/luxon/)
-- [Underscore](http://underscorejs.org/)
 
 #
 
