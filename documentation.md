@@ -33,24 +33,24 @@ The questionnaire comprised 10 questions meant to understand the users’ intera
 
 The results from the questionnaire brought a promising outcome. Since all the students agreed with the potential usefulness of the app, I can argue this app could improve the way young people and especially students, approach diets, grocery and personal macronutrients intake. 
 
-# ![login](src/assets/login.png) 
-# ![addrecipe](src/assets/addrecipes.png) 
-# ![deleterecipe](src/assets/deleterecipe.png) 
-# ![struggled](src/assets/struggled.png) 
+# ![login](src/assets/documentation/login.png) 
+# ![addrecipe](src/assets/documentation/addrecipes.png) 
+# ![deleterecipe](src/assets/documentation/deleterecipe.png) 
+# ![struggled](src/assets/documentation/struggled.png) 
 
 All the users have been proven able to create an account, log in and use recipes without prior explanation or tour through the app. Furthermore, the most of interviewed individuals have been able to add recipes to the shopping list and calendar in an easy and approachable manner. When asking users if they have struggled while using the app, most of the users answered negatively, however one student found a bug which doesn’t allow user to plan recipes for the current day’s date. For this reason I have decided to implement the prototype methodology to repeat the process from the design step forward. This allowed me to plan the approach and resolve the bug. 
 
-# ![favourite](src/assets/favourite.png) 
+# ![favourite](src/assets/documentation/favourite.png) 
 
 From the user’s questionnaire I have realised the preferred features are the ability to add recipes to the Shopping List and adding recipes to the Calendar Planner. However, the possibility of logging with third-party providers like Google and Facebook has achieved a significant success. 
 
-# ![newfeature](src/assets/newfeature.png) 
+# ![newfeature](src/assets/documentation/newfeature.png) 
 
 Next when users have been asked to choose between new features they would like to be implemented the preferred one was the ability to choose between recipes that help to achieve the weekly macronutrients goal (like 3000kcal/day). This feature in fact would make users more aware of the actual intake they are getting and how act in order to get healthier and more organised. Next users would like the possibility to filter recipes based on the nature of the ingredients, like recipes with only vegetarian or vegan products. Another main feature students would like is the possibility to download the app from the main application stores available at the moment (App Store, Google Play).
 
-# ![useinthefuture](src/assets/useinthefuture.png) 
-# ![approach](src/assets/approach.png) 
-# ![achievehealtier](src/assets/achievehealtier.png) 
+# ![useinthefuture](src/assets/documentation/useinthefuture.png) 
+# ![approach](src/assets/documentation/approach.png) 
+# ![achievehealtier](src/assets/documentation/achievehealtier.png) 
 
 Finally the users have been asked if they would use the app and if in their opinion this could help achieving a healthier and more organised lifestyle. All the answers were very promising. In fact 90% of interviewed students have stated they belive the app can help them achieve a healthier lifestyle.
 
