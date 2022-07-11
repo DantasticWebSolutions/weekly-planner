@@ -59,8 +59,7 @@ In conclusion, based on the questionnaire’s results, this app is highly likely
 
 # Appendix
 
-[Figma design Project](https://www.figma.com/file/kIQUiAkFknaj58zUyVi8rj/Meals-and-Shopping-List-weekly-planner?node-id=0%3A1) \
-[Google Form Questionnaire](https://forms.gle/tdJDgo5Svb1ad7B66)
+[Figma design Project](https://www.figma.com/file/kIQUiAkFknaj58zUyVi8rj/Meals-and-Shopping-List-weekly-planner?node-id=0%3A1)
 
 
 ### Technologies: 
