@@ -97,20 +97,18 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 
-_For the purpose of this assignment I am sharing the keys to access the firebase database in order to let the lecturer run the project even if that causes an unacceptable security breach._
-
 1. Clone the Repo
    ```sh
    git clone https://github.com/DantasticWebSolutions/weekly-planner.git
    ```
 2. Create a .env.local file in the root and paste the following
    ```sh
-   REACT_APP_FIREBASE_API_KEY=AIzaSyAZ7x1rdNgIxB8JBJVKGsHLS3Fc9OpxnWk
-   REACT_APP_FIREBASE_AUTH_DOMAIN=auth-development-3e7c1.firebaseapp.com
-   REACT_APP_FIREBASE_PROJECT_ID=auth-development-3e7c1
-   REACT_APP_FIREBASE_STORAGE_BUCKET=auth-development-3e7c1.appspot.com
-   REACT_APP_FIREBASE_MESSAGING_SENDER_ID=1057533711368
-   REACT_APP_FIREBASE_APP_ID=1:1057533711368:web:7ff31bf167392e9133edbd
+   REACT_APP_FIREBASE_API_KEY=[YOUR APP_FIREBASE_API_KEY 
+   REACT_APP_FIREBASE_AUTH_DOMAIN=[YOUR APP_FIREBASE_API_KEY]
+   REACT_APP_FIREBASE_PROJECT_ID=[YOUR APP_FIREBASE_API_KEY]
+   REACT_APP_FIREBASE_STORAGE_BUCKET=[YOUR APP_FIREBASE_API_KEY]
+   REACT_APP_FIREBASE_MESSAGING_SENDER_ID=[YOUR APP_FIREBASE_API_KEY]
+   REACT_APP_FIREBASE_APP_ID=[YOUR APP_FIREBASE_API_KEY]
    ```
 3. Install NPM packages
    ```sh
